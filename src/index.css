@@ -1,0 +1,96 @@
+:root {
+  --nt-bg: #FDFBF9;
+  --nt-text: rgba(45 42 40 / 0.92);
+  --nt-muted: rgba(45 42 40 / 0.64);
+  --nt-ink: #5A5654;
+  --nt-panel: rgba(45 42 40 / 0.04);
+  --nt-panel-2: rgba(45 42 40 / 0.07);
+  --nt-border: rgba(45 42 40 / 0.12);
+
+  --nt-blush: #e4d1d1;
+  --nt-blush-deep: #c9a9a9;
+  --nt-blush-light: #f2e8e8;
+  --nt-neon: #ccff00;
+
+  --nt-blush-rgb: 228 209 209;
+  --nt-blush-deep-rgb: 201 169 169;
+  --nt-blush-light-rgb: 242 232 232;
+  --nt-neon-rgb: 204 255 0;
+
+  --nt-shadow: 0 14px 40px rgba(45 42 40 / 0.12);
+  --nt-radius: 10px;
+  --nt-max: 1120px;
+
+  font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: var(--nt-text);
+  background-color: var(--nt-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--nt-text);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--nt-text);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--nt-ink);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  background: radial-gradient(900px 600px at 15% 10%, rgba(228 209 209 / 0.35), transparent 55%),
+    radial-gradient(1000px 700px at 92% 0%, rgba(204 255 0 / 0.15), transparent 52%),
+    radial-gradient(1100px 700px at 55% 110%, rgba(242 232 232 / 0.40), transparent 58%),
+    var(--nt-bg);
+  color: var(--nt-text);
+}
+
+*[id] {
+  scroll-margin-top: 92px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  color: var(--nt-ink);
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+  line-height: 1.15;
+  color: var(--nt-ink);
+}
+
+p {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(201 169 166 / 0.75);
+  outline-offset: 3px;
+}
