@@ -147,6 +147,28 @@
   margin-top: 18px;
 }
 
+.heroVisual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroLogo {
+  width: 100%;
+  max-width: 120px;
+  opacity: 0.85;
+}
+
+@media (min-width: 768px) {
+  .heroGrid {
+    grid-template-columns: 1fr auto;
+  }
+  
+  .heroLogo {
+    max-width: 160px;
+  }
+}
+
 .section {
   padding: 46px 0;
 }

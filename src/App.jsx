@@ -69,6 +69,9 @@ function App() {
                 <a className="btn btnGhost" href="#approach" onClick={() => track('click', { element: 'hero-our-approach' })}>Our approach</a>
               </div>
             </div>
+            <div className="heroVisual">
+              <img className="heroLogo" src="/logo.png" alt="Nexus Trust" />
+            </div>
           </div>
         </section>
 
@@ -116,10 +119,10 @@ function App() {
               <div className="card profileCard">
                 <img className="profilePhoto" src="/Aniek Hannink.jpg.avif" alt="Aniek Hannink" />
                 <div className="profileContent">
-                  <div className="badge badgePink">Architecture & Secure Software Development</div>
+                  <div className="badge badgePink">Architecture & Secure Software</div>
                   <a className="cardTitle profileLink" href="https://magicchoice.com" target="_blank" rel="noopener noreferrer" onClick={() => track('click', { element: 'profile-link', name: 'Aniek Hannink' })}>Aniek Hannink</a>
                   <p className="cardText">
-                    [Description of second collective member - to be filled with specific expertise and background.]
+                    Skilled at applying fundamental techniques to make services actually work — from architecture through implementation to operations.
                   </p>
                 </div>
               </div>
@@ -130,7 +133,7 @@ function App() {
                   <div className="badge badgeAmber">Cloud Strategy & AI</div>
                   <a className="cardTitle profileLink" href="https://beaudesert.nl" target="_blank" rel="noopener noreferrer" onClick={() => track('click', { element: 'profile-link', name: 'Wiebe Woudstra' })}>Wiebe Woudstra</a>
                   <p className="cardText">
-                    [Description of third collective member - to be filled with specific expertise and background.]
+                    Cloud infrastructure, AI consulting, identity management, and hands-on IT operations. From interim leadership to end-to-end operational delivery.
                   </p>
                 </div>
               </div>
