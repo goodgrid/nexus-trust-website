@@ -47,6 +47,11 @@
   white-space: nowrap;
 }
 
+.brandLogoHorizontal {
+  height: 96px;
+  object-fit: contain;
+}
+
 .nav {
   display: none;
   align-items: center;

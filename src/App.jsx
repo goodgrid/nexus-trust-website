@@ -37,8 +37,7 @@ function App() {
       <header className="header">
         <div className="container headerInner">
           <a className="brand" href="#top" aria-label="Nexus Trust">
-            <img className="brandLogo" src="/logo.png" alt="Nexus Trust" />
-            <span className="brandName">Nexus Trust</span>
+            <img className="brandLogoHorizontal" src="/logo-horizontal.png" alt="Nexus Trust" />
           </a>
 
           <nav className="nav" aria-label="Primary navigation">
@@ -254,7 +253,7 @@ function App() {
       <footer className="footer">
         <div className="container footerInner">
           <div className="footerBrand">
-            <img className="footerLogo" src="/logo.png" alt="Nexus Trust" />
+            <img className="footerLogo" src="/logo.png" alt="Nexus Trust" style={{ width: 44, height: 44 }} />
             <div>
               <div className="footerName">Nexus Trust</div>
               <div className="footerTag">Collective for technological reset</div>
