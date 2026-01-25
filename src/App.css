@@ -239,12 +239,24 @@
   font-weight: 750;
   letter-spacing: 0.1px;
   margin-bottom: 10px;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(3 16 32 / 0.3);
+  text-underline-offset: 3px;
   color: var(--nt-ink);
 }
 
 .profileLink:hover {
-  text-decoration: underline;
+  text-decoration-color: var(--nt-ink);
+}
+
+.linkIcon {
+  font-size: 0.85em;
+  opacity: 0.6;
+  margin-left: 2px;
+}
+
+.profileLink:hover .linkIcon {
+  opacity: 1;
 }
 
 .badge {

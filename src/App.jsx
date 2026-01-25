@@ -107,7 +107,7 @@ function App() {
                 <img className="profilePhoto" src="/Koen Bonnet.jpg.avif" alt="Koen Bonnet" />
                 <div className="profileContent">
                   <div className="badge badgeCyan">Architecture & Product Delivery</div>
-                  <a className="cardTitle profileLink" href="https://goodgrid.nl" target="_blank" rel="noopener noreferrer" onClick={() => track('click', { element: 'profile-link', name: 'Koen Bonnet' })}>Koen Bonnet</a>
+                  <a className="cardTitle profileLink" href="https://goodgrid.nl" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Koen Bonnet' })}>Koen Bonnet <span className="linkIcon">↗</span></a>
                   <p className="cardText">
                     Enterprise architecture, product ownership, DevOps, and hands-on Node.js development.
                     From strategy to production.
@@ -119,7 +119,7 @@ function App() {
                 <img className="profilePhoto" src="/Aniek Hannink.jpg.avif" alt="Aniek Hannink" />
                 <div className="profileContent">
                   <div className="badge badgePink">Architecture & Secure Software</div>
-                  <a className="cardTitle profileLink" href="https://magicchoice.com" target="_blank" rel="noopener noreferrer" onClick={() => track('click', { element: 'profile-link', name: 'Aniek Hannink' })}>Aniek Hannink</a>
+                  <a className="cardTitle profileLink" href="https://goodgrid.nl/magicchoice" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Aniek Hannink' })}>Aniek Hannink <span className="linkIcon">↗</span></a>
                   <p className="cardText">
                     Skilled at applying fundamental techniques to make services actually work — from architecture through implementation to operations.
                   </p>
@@ -130,7 +130,7 @@ function App() {
                 <img className="profilePhoto" src="/Wiebe Woudstra.jpg.avif" alt="Wiebe Woudstra" />
                 <div className="profileContent">
                   <div className="badge badgeAmber">Cloud Strategy & AI</div>
-                  <a className="cardTitle profileLink" href="https://beaudesert.nl" target="_blank" rel="noopener noreferrer" onClick={() => track('click', { element: 'profile-link', name: 'Wiebe Woudstra' })}>Wiebe Woudstra</a>
+                  <a className="cardTitle profileLink" href="https://goodgrid.nl/beaudesert" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Wiebe Woudstra' })}>Wiebe Woudstra <span className="linkIcon">↗</span></a>
                   <p className="cardText">
                     Cloud infrastructure, AI consulting, identity management, and hands-on IT operations. From interim leadership to end-to-end operational delivery.
                   </p>
