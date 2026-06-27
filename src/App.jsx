@@ -36,7 +36,7 @@ function App() {
   const { locale, setLanguage, t } = useLanguage()
 
   useEffect(() => {
-    const sections = ['conviction', 'approach', 'services', 'ai', 'collective', 'proof', 'contact']
+    const sections = ['conviction', 'why-now', 'approach', 'services', 'ai', 'collective', 'proof', 'contact']
     const observed = new Set()
 
     const observer = new IntersectionObserver(
@@ -69,6 +69,7 @@ function App() {
 
           <nav className="nav" aria-label="Primary navigation">
             <a className="navLink" href="#conviction">{t.nav.conviction}</a>
+            <a className="navLink" href="#why-now">{t.nav.whyNow}</a>
             <a className="navLink" href="#approach">{t.nav.approach}</a>
             <a className="navLink" href="#services">{t.nav.services}</a>
             <a className="navLink" href="#collective">{t.nav.collective}</a>
@@ -127,6 +128,31 @@ function App() {
             <div className="prose">
               <p className="lead">{t.conviction.body}</p>
               <p className="muted supportingLine">{t.conviction.supporting}</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="why-now" className="section">
+          <div className="container">
+            <div className="band">
+              <div className="bandKicker">{t.whyNow.kicker}</div>
+              <h2>{t.whyNow.heading}</h2>
+              <p className="bandBody">{t.whyNow.body}</p>
+              <div className="bandFooter">
+                <div className="bandDeadline">
+                  <span className="bandDeadlineLabel">{t.whyNow.deadlineLabel}</span>
+                  <span className="bandDeadlineValue">{t.whyNow.deadlineValue}</span>
+                </div>
+                <a
+                  className="bandSource"
+                  href={t.whyNow.sourceHref}
+                  target="_blank"
+                  rel="noopener"
+                  onClick={() => track('click', { element: 'why-now-source' })}
+                >
+                  {t.whyNow.sourceLabel} <span className="linkIcon">↗</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>

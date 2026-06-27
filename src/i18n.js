@@ -27,6 +27,7 @@ export const content = {
   nl: {
     nav: {
       conviction: 'Overtuiging',
+      whyNow: 'Waarom nu',
       approach: 'Aanpak',
       services: 'Diensten',
       ai: 'Over AI',
@@ -48,6 +49,16 @@ export const content = {
       body: 'De gemaksproducten van hyperscalers en SaaS zijn black boxes. Handig, totdat je je technologie moet kunnen verantwoorden — en dan blijkt dat je niet kunt certificeren, aantonen of vertrouwen wat je niet doorgrondt. Zodra het echt moet kloppen, telt elke laag, tot op het ijzer, en wordt gemak een aansprakelijkheid. Daarom is soevereiniteit voor ons geen politiek standpunt maar een technische voorwaarde voor vertrouwen: je kunt niet vertrouwen wat een ander voor je verbergt. Europa besteedde dit vak uit. Wij helpen organisaties het weer te beheersen.',
       supporting:
         'Gebouwd op Europese kaders — eIDAS, de AI Act, ISO 27001 — als ontwerp-uitgangspunt, niet als compliance-vinkje achteraf.',
+    },
+    whyNow: {
+      kicker: 'Waarom nu',
+      heading: 'De wet zet de klok.',
+      body: 'Twee elkaar versterkende verschuivingen verbreden wie aantoonbaar in control moet zijn over zijn vertrouwenstechnologie — met een deadline erbij. Eén: de eIDAS-reikwijdte verbreedt. eIDAS is technologieneutraal, dus de reikwijdte volgt de functie, niet de techniek. De RDI concludeerde in juni 2026 dat aanbieders van eDelivery ("digitale aangetekende post") vertrouwensdienstverleners zijn en onder eIDAS en de Cyberbeveiligingswet vallen — te beginnen bij Peppol-serviceproviders. Twee: eIDAS2 forceert de adoptie die eIDAS1 miste. Lidstaten moeten de Europese identity wallet introduceren, en relying parties moeten die accepteren — voor gereguleerde sectoren en grote platforms uiterlijk 6 december 2027. Overheden ontsluiten authentieke bronnen als claims en onboarden burgers met PID’s en credentials; de private sector lift mee, zowel door de wallet te accepteren als door eigen credentials uit te geven. De meesten halen onder tijdsdruk het vinkje met een gemakkelijke black-box-leverancier. Wij doen het omgekeerde: soeverein, certificeerbaar en gebouwd om te blijven — want dit ís nu je vertrouwensinfrastructuur.',
+      deadlineLabel: 'Acceptatiedeadline eIDAS2-wallet',
+      deadlineValue: '6 december 2027',
+      sourceLabel: 'Bron: RDI — eDelivery-aanbieders vallen onder eIDAS en Cbw',
+      sourceHref:
+        'https://www.rdi.nl/actueel/nieuws/2026/06/03/aanbieders-edelivery-vallen-onder-eidas-en-cbw',
     },
     approach: {
       heading: 'Onze aanpak',
@@ -138,6 +149,7 @@ export const content = {
   en: {
     nav: {
       conviction: 'Conviction',
+      whyNow: 'Why now',
       approach: 'Approach',
       services: 'Services',
       ai: 'On AI',
@@ -159,6 +171,16 @@ export const content = {
       body: 'The convenient products of hyperscalers and SaaS are black boxes. Useful, until you must account for your technology — and then it turns out you cannot certify, demonstrate or trust what you do not comprehend. When it truly has to be right, every layer counts, down to the metal, and convenience becomes a liability. That is why sovereignty, for us, is not a political stance but a technical precondition for trust: you cannot trust what someone else hides from you. Europe outsourced this craft. We help organisations master it again.',
       supporting:
         'Built on European frameworks — eIDAS, the AI Act, ISO 27001 — as a design principle, not a compliance checkbox afterwards.',
+    },
+    whyNow: {
+      kicker: 'Why now',
+      heading: 'The law is setting the clock.',
+      body: 'Two reinforcing shifts are widening who must be in control of their trust technology — and adding a deadline. First, eIDAS scope is widening: it is technology-neutral, so scope follows function, not technology. In June 2026 the Dutch regulator RDI concluded that providers of eDelivery ("digital registered post") are trust service providers, falling under eIDAS and the Cybersecurity Act — starting with Peppol service providers. Second, eIDAS2 forces adoption where eIDAS1 stalled: Member States must introduce the European digital identity wallet, and relying parties must accept it — for regulated sectors and very large platforms by 6 December 2027. Governments unlock authentic sources as claims and onboard citizens with PIDs and credentials; the private sector rides along, both accepting the wallet and issuing its own credentials. Most will tick the box under time pressure with a convenient black-box vendor. We do the opposite: sovereign, certifiable, and built to last — because this is your trust infrastructure now.',
+      deadlineLabel: 'eIDAS2 wallet acceptance deadline',
+      deadlineValue: '6 December 2027',
+      sourceLabel: 'Source: RDI — eDelivery providers fall under eIDAS and the Cybersecurity Act',
+      sourceHref:
+        'https://www.rdi.nl/actueel/nieuws/2026/06/03/aanbieders-edelivery-vallen-onder-eidas-en-cbw',
     },
     approach: {
       heading: 'Our approach',
