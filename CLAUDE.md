@@ -91,16 +91,16 @@ Register note: this is buyer-facing. Keep the nationality **implicit** (no "Amer
 **EN**
 - Eyebrow: *A collective of senior technologists*
 - Headline: **Digital trust you can actually account for.**
-- Subhead: For banks, healthcare and government, we design and build trust-critical systems you fully understand and control — from architecture to the foundation. No black boxes.
+- Subhead: We design and build trust-critical systems you fully understand and control — from architecture to the foundation. No black boxes.
 - Primary CTA: *Schedule a call* — Secondary: *How we work*
 
 **NL**
 - Eyebrow: *Een collectief van senior technologen*
 - Headline: **Digitaal vertrouwen dat je écht kunt verantwoorden.**
-- Subhead: Voor banken, zorg en overheid ontwerpen én bouwen we vertrouwenskritische systemen die je volledig begrijpt en beheerst — van architectuur tot het fundament. Geen black boxes.
+- Subhead: We ontwerpen én bouwen vertrouwenskritische systemen die je volledig begrijpt en beheerst — van architectuur tot het fundament. Geen black boxes.
 - Primary CTA: *Plan een gesprek* — Secondary: *Zo werken we*
 
-**Audience strip (one slim line directly under the hero subhead — do NOT make this a separate section).** Makes the situation-based focus explicit without reading like internal strategy.
+**Audience strip (one slim line directly under the hero subhead — do NOT make this a separate section).** This strip is the *single* place that defines the audience: the subhead carries the promise (what we do), the strip carries the who (situation-based, broad). Do not also list sectors in the subhead — that created overlap and pinned the audience too narrowly. Makes the situation-based focus explicit without reading like internal strategy.
 - EN: *For organisations that must be demonstrably in control of trust-critical technology — banks, healthcare and government, and the widening ring now drawn into eIDAS/Cbw scope or the European wallet: trust service providers, eDelivery/Peppol, and anyone running a trust-critical interface.*
 - NL: *Voor organisaties die aantoonbaar in control moeten zijn over vertrouwenskritische technologie — banken, zorg en overheid, en de groeiende kring die nu binnen eIDAS/Cbw-scope of de Europese wallet valt: vertrouwensdienstverleners, eDelivery/Peppol, en iedereen met een vertrouwenskritisch koppelvlak.*
 
