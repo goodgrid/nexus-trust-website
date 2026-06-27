@@ -130,7 +130,7 @@ function App() {
                 <img className="profilePhoto" src="/Wiebe Woudstra.jpg.avif" alt="Wiebe Woudstra" />
                 <div className="profileContent">
                   <div className="badge badgeAmber">Cloud Strategy & AI</div>
-                  <a className="cardTitle profileLink" href="https://goodgrid.nl/beaudesert" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Wiebe Woudstra' })}>Wiebe Woudstra <span className="linkIcon">↗</span></a>
+                  <a className="cardTitle profileLink" href="https://www.beaudesert.nl" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Wiebe Woudstra' })}>Wiebe Woudstra <span className="linkIcon">↗</span></a>
                   <p className="cardText">
                     Cloud infrastructure, AI consulting, identity management, and hands-on IT operations. From interim leadership to end-to-end operational delivery.
                   </p>
