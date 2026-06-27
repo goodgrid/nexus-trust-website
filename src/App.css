@@ -17,6 +17,12 @@
   border-bottom: 1px solid var(--nt-border);
 }
 
+/* Give the header more horizontal room than the content columns so the
+   nav (logo + 6 links + language switch + CTA) does not wrap. */
+.header .container {
+  max-width: 1320px;
+}
+
 .headerInner {
   display: flex;
   align-items: center;
@@ -96,7 +102,7 @@
 .nav {
   display: none;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
 }
 
 .navLink {
@@ -104,6 +110,7 @@
   font-size: 0.95rem;
   padding: 8px 10px;
   border-radius: 10px;
+  white-space: nowrap;
 }
 
 .navLink:hover {
@@ -547,10 +554,6 @@
 }
 
 @media (min-width: 860px) {
-  .nav {
-    display: inline-flex;
-  }
-
   .heroGrid {
     grid-template-columns: 1.25fr 1fr;
     gap: 18px;
@@ -567,6 +570,13 @@
   .cta {
     grid-template-columns: 1.4fr 0.6fr;
     padding: 22px;
+  }
+}
+
+/* The nav needs more room than the grids, so reveal it a bit later. */
+@media (min-width: 1000px) {
+  .nav {
+    display: inline-flex;
   }
 }
 
