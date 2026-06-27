@@ -62,10 +62,17 @@ export const content = {
       heading: 'De wet zet de klok.',
       body: [
         'De Europese digitale identity wallet bouwt op vertrouwensdiensten, en is waardevol voor enorm veel partijen - dus om mee te doen word je vanzelf het ecosysteem in gezogen. Geef je een credential of attestatie uit in de wallet, of vertrouw je erop, dan word je vertrouwensdienstverlener, vaak zonder het door te hebben. En vertrouwensdienstverleners worden in een zwaarder regime getrokken: eIDAS-verplichtingen plus NIS2 - in Nederland de Cyberbeveiligingswet - met beveiligingsplichten, toezicht en meldplicht.',
-        'Twee krachten versnellen dit. eIDAS is technologieneutraal, dus de reikwijdte volgt de functie, niet de techniek: de RDI concludeerde in juni 2026 dat zelfs aanbieders van eDelivery ("digitale aangetekende post") vertrouwensdienstverleners zijn - één illustratie van hoe wijd het net reikt. En eIDAS2 forceert de adoptie die eIDAS1 miste: lidstaten moeten de wallet leveren, en relying parties moeten die accepteren - voor gereguleerde sectoren en grote platforms uiterlijk 6 december 2027. De meesten halen onder tijdsdruk het vinkje met een gemakkelijke black-box-leverancier. Wij doen het omgekeerde: soeverein, certificeerbaar en gebouwd om te blijven - want dit ís nu je vertrouwensinfrastructuur. En het is onze thuisbasis: wallet, PID, credentials en attestaties zijn PKI en vertrouwensdiensten, exact wat we met de QTSP bouwden.',
+        'Twee krachten versnellen dit. eIDAS is technologieneutraal, dus de reikwijdte volgt de functie, niet de techniek: de RDI concludeerde in juni 2026 dat zelfs aanbieders van eDelivery ("digitale aangetekende post") vertrouwensdienstverleners zijn - één illustratie van hoe wijd het net reikt. En eIDAS2 forceert de adoptie die eIDAS1 miste: lidstaten moeten de wallet leveren, en relying parties moeten die accepteren - voor gereguleerde sectoren en grote platforms uiterlijk ~eind 2027. De meesten halen onder tijdsdruk het vinkje met een gemakkelijke black-box-leverancier. Wij doen het omgekeerde: soeverein, certificeerbaar en gebouwd om te blijven - want dit ís nu je vertrouwensinfrastructuur. En het is onze thuisbasis: wallet, PID, credentials en attestaties zijn PKI en vertrouwensdiensten, exact wat we met de QTSP bouwden.',
       ],
-      deadlineLabel: 'Acceptatiedeadline eIDAS2-wallet',
-      deadlineValue: '6 december 2027',
+      timelineLabel: 'De klok loopt (benaderende mijlpalen)',
+      timeline: [
+        { date: '20 mei 2024', label: 'in werking' },
+        { date: 'dec 2024', label: 'uitvoeringshandelingen - de klok start' },
+        { date: '~eind 2026', label: 'lidstaten bieden wallet (met PID) aan' },
+        { date: '~eind 2027', label: 'acceptatieplicht: gereguleerde sectoren + grote platforms' },
+      ],
+      deadlineLabel: 'Acceptatieplicht eIDAS2-wallet',
+      deadlineValue: '~eind 2027',
       sourceLabel: 'Bron: RDI - eDelivery-aanbieders vallen onder eIDAS en Cbw',
       sourceHref:
         'https://www.rdi.nl/actueel/nieuws/2026/06/03/aanbieders-edelivery-vallen-onder-eidas-en-cbw',
@@ -208,10 +215,17 @@ export const content = {
       heading: 'The law is setting the clock.',
       body: [
         'The European digital identity wallet is built on trust services, and it is valuable to a huge range of parties - so to take part, you get pulled in. Issue a credential or attestation into the wallet, or rely on one, and you become a trust service provider, often without realising it. And trust service providers are pulled into a heavier regime: eIDAS obligations plus NIS2 - in the Netherlands the Cyberbeveiligingswet - with security duties, supervision and incident reporting.',
-        'Two forces accelerate this. eIDAS is technology-neutral, so its scope follows function, not technology: in June 2026 the Dutch regulator RDI concluded that even eDelivery providers ("digital registered post") are trust service providers - one illustration of how wide the net reaches. And eIDAS2 forces adoption where eIDAS1 stalled: Member States must provide the wallet, and relying parties must accept it - for regulated sectors and very large platforms by 6 December 2027. Most will tick the box under time pressure with a convenient black-box vendor. We do the opposite: sovereign, certifiable, and built to last - because this is your trust infrastructure now. And it is our home turf: wallet, PID, credentials and attestations are PKI and trust services, exactly what we built with the QTSP.',
+        'Two forces accelerate this. eIDAS is technology-neutral, so its scope follows function, not technology: in June 2026 the Dutch regulator RDI concluded that even eDelivery providers ("digital registered post") are trust service providers - one illustration of how wide the net reaches. And eIDAS2 forces adoption where eIDAS1 stalled: Member States must provide the wallet, and relying parties must accept it - for regulated sectors and very large platforms by ~end 2027. Most will tick the box under time pressure with a convenient black-box vendor. We do the opposite: sovereign, certifiable, and built to last - because this is your trust infrastructure now. And it is our home turf: wallet, PID, credentials and attestations are PKI and trust services, exactly what we built with the QTSP.',
       ],
-      deadlineLabel: 'eIDAS2 wallet acceptance deadline',
-      deadlineValue: '6 December 2027',
+      timelineLabel: 'The clock is running (approximate milestones)',
+      timeline: [
+        { date: '20 May 2024', label: 'enters into force' },
+        { date: 'Dec 2024', label: 'implementing acts - the clock starts' },
+        { date: '~end 2026', label: 'Member States offer the wallet (with PID)' },
+        { date: '~end 2027', label: 'acceptance duty: regulated sectors + large platforms' },
+      ],
+      deadlineLabel: 'eIDAS2 wallet acceptance duty',
+      deadlineValue: '~end 2027',
       sourceLabel: 'Source: RDI - eDelivery providers fall under eIDAS and the Cybersecurity Act',
       sourceHref:
         'https://www.rdi.nl/actueel/nieuws/2026/06/03/aanbieders-edelivery-vallen-onder-eidas-en-cbw',

@@ -136,7 +136,14 @@ Body: The European digital identity wallet is built on trust services, and it is
 **NL - kop:** *De wet zet de klok.*
 Body: De Europese digitale identity wallet bouwt op vertrouwensdiensten, en is waardevol voor enorm veel partijen - dus om mee te doen word je vanzelf het ecosysteem in gezogen. Geef je een credential of attestatie uit in de wallet, of vertrouw je erop, dan word je vertrouwensdienstverlener, vaak zonder het door te hebben. En vertrouwensdienstverleners worden in een zwaarder regime getrokken: eIDAS-verplichtingen plus NIS2 - in Nederland de Cyberbeveiligingswet - met beveiligingsplichten, toezicht en meldplicht. Twee krachten versnellen dit. eIDAS is technologieneutraal, dus de reikwijdte volgt de functie, niet de techniek: de RDI concludeerde in juni 2026 dat zelfs aanbieders van eDelivery ("digitale aangetekende post") vertrouwensdienstverleners zijn - één illustratie van hoe wijd het net reikt. En eIDAS2 forceert de adoptie die eIDAS1 miste: lidstaten moeten de wallet leveren, en relying parties moeten die accepteren - voor gereguleerde sectoren en grote platforms uiterlijk 6 december 2027. De meesten halen onder tijdsdruk het vinkje met een gemakkelijke black-box-leverancier. Wij doen het omgekeerde: soeverein, certificeerbaar en gebouwd om te blijven - want dit ís nu je vertrouwensinfrastructuur. En het is onze thuisbasis: wallet, PID, credentials en attestaties zijn PKI en vertrouwensdiensten, exact wat we met de QTSP bouwden.
 
-(Cite the RDI ruling and the 6 December 2027 date as factual anchors. Link the RDI source where appropriate: https://www.rdi.nl/actueel/nieuws/2026/06/03/aanbieders-edelivery-vallen-onder-eidas-en-cbw)
+**Timeline element (render as a simple horizontal / stepped timeline graphic; high-level and factual).** Makes the urgency tangible. Present the dates as approximate ("eind 2026/2027"); they are widely reported estimates keyed to the implementing acts, not hard calendar dates in the regulation text.
+- **20 May 2024** - eIDAS2 (Regulation (EU) 2024/1183) enters into force.
+- **Dec 2024** - technical implementing acts adopted - this starts the clock.
+- **~end 2026** (24 months later) - every Member State must offer at least one EU Digital Identity Wallet, with PID, to its citizens.
+- **~end 2027** (a further ~12 months) - mandatory acceptance: regulated private sectors that require strong user authentication, plus very large online platforms/gatekeepers, must accept the wallet (public-sector services are in scope too).
+- NL labels: "in werking" / "uitvoeringshandelingen - de klok start" / "lidstaten bieden wallet (met PID) aan" / "acceptatieplicht: gereguleerde sectoren + grote platforms".
+
+(Cite the RDI ruling and the ~end-2027 acceptance milestone as factual anchors. Link the RDI source where appropriate: https://www.rdi.nl/actueel/nieuws/2026/06/03/aanbieders-edelivery-vallen-onder-eidas-en-cbw)
 
 ---
 

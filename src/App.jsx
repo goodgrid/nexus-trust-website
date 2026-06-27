@@ -263,6 +263,16 @@ function App() {
               {t.whyNow.body.map((paragraph, i) => (
                 <p className="bandBody" key={i}>{paragraph}</p>
               ))}
+
+              <div className="timeline" role="list" aria-label={t.whyNow.timelineLabel}>
+                {t.whyNow.timeline.map((step) => (
+                  <div className="timelineStep" role="listitem" key={step.date}>
+                    <span className="timelineDate">{step.date}</span>
+                    <span className="timelineLabel">{step.label}</span>
+                  </div>
+                ))}
+              </div>
+
               <div className="bandFooter">
                 <div className="bandDeadline">
                   <span className="bandDeadlineLabel">{t.whyNow.deadlineLabel}</span>
