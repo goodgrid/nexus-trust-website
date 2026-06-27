@@ -64,6 +64,125 @@
   gap: 12px;
 }
 
+/* Inline language switch + CTA: visible on desktop, folded into the menu on mobile. */
+.headerDesktopActions {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--nt-border);
+  border-radius: 12px;
+  background: rgba(255 255 255 / 0.65);
+  cursor: pointer;
+}
+
+.hamburger:hover {
+  background: rgba(3 16 32 / 0.05);
+}
+
+.hamburgerBox {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 14px;
+}
+
+.hamburgerInner,
+.hamburgerInner::before,
+.hamburgerInner::after {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--nt-ink);
+  transition: transform 160ms ease, opacity 120ms ease, top 160ms ease;
+}
+
+.hamburgerInner {
+  top: 6px;
+}
+
+.hamburgerInner::before,
+.hamburgerInner::after {
+  content: '';
+}
+
+.hamburgerInner::before {
+  top: -6px;
+}
+
+.hamburgerInner::after {
+  top: 6px;
+}
+
+.hamburgerOpen .hamburgerInner {
+  background: transparent;
+}
+
+.hamburgerOpen .hamburgerInner::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.hamburgerOpen .hamburgerInner::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+.mobileMenu {
+  border-bottom: 1px solid var(--nt-border);
+  background: rgba(253 251 249 / 0.98);
+  backdrop-filter: blur(12px);
+}
+
+.mobileMenuInner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
+
+.mobileNavLink {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: rgba(3 16 32 / 0.82);
+  font-weight: 600;
+}
+
+.mobileNavLink:hover {
+  background: rgba(3 16 32 / 0.05);
+  color: var(--nt-ink);
+}
+
+.mobileMenuFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--nt-border);
+}
+
+.mobileMenuFooter .btn {
+  flex: 1;
+  min-height: 44px;
+}
+
 .langSwitch {
   display: inline-flex;
   align-items: center;
@@ -193,12 +312,12 @@
   max-width: 62ch;
 }
 
-.audienceStrip {
+.hookLine {
   margin-top: 14px;
   padding-left: 14px;
   border-left: 3px solid rgb(var(--nt-neon-rgb) / 0.55);
-  color: var(--nt-muted);
-  font-size: 0.92rem;
+  color: rgba(3 16 32 / 0.82);
+  font-size: 1rem;
   line-height: 1.5;
   max-width: 64ch;
 }
@@ -603,16 +722,37 @@
   }
 }
 
-/* The nav needs more room than the grids, so reveal it a bit later. */
+/* The nav needs more room than the grids, so reveal it (and the inline
+   actions) a bit later; below this the hamburger menu takes over. */
 @media (min-width: 1000px) {
   .nav {
     display: inline-flex;
+  }
+
+  .headerDesktopActions {
+    display: inline-flex;
+  }
+
+  .hamburger,
+  .mobileMenu {
+    display: none;
+  }
+}
+
+/* Shrink the wordmark on small screens so the header stays compact. */
+@media (max-width: 720px) {
+  .brandLogoHorizontal {
+    height: 60px;
   }
 }
 
 @media (max-width: 420px) {
   .headerInner {
     padding: 12px 0;
+  }
+
+  .brandLogoHorizontal {
+    height: 52px;
   }
 
   .heroCtas,

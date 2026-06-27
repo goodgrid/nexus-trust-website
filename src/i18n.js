@@ -35,14 +35,16 @@ export const content = {
       proof: 'Bewijs',
       contact: 'Contact',
       cta: 'Plan een gesprek',
+      menuOpen: 'Menu openen',
+      menuClose: 'Menu sluiten',
     },
     langSwitch: { label: 'Taal', toEn: 'Schakel naar Engels' },
     hero: {
       eyebrow: 'Een collectief van senior technologen',
       headline: 'Digitaal vertrouwen dat je écht kunt verantwoorden.',
       lead: 'We ontwerpen én bouwen vertrouwenskritische systemen die je volledig begrijpt en beheerst - van architectuur tot het fundament. Geen black boxes.',
-      audience:
-        'Voor organisaties die aantoonbaar in control moeten zijn over vertrouwenskritische technologie - banken, zorg en overheid, en de groeiende kring die nu binnen eIDAS/Cbw-scope of de Europese wallet valt: vertrouwensdienstverleners, eDelivery/Peppol, en iedereen met een vertrouwenskritisch koppelvlak.',
+      hook:
+        'De Europese wallet maakt vertrouwensdienstverleners van organisaties die dat nooit waren - met eIDAS- en NIS2/Cyberbeveiligingswet-verplichtingen erbij. Wij bouwen de infrastructuur die daartegen bestand is.',
       ctaPrimary: 'Plan een gesprek',
       ctaSecondary: 'Zo werken we',
     },
@@ -58,7 +60,10 @@ export const content = {
     whyNow: {
       kicker: 'Waarom nu',
       heading: 'De wet zet de klok.',
-      body: 'Twee elkaar versterkende verschuivingen verbreden wie aantoonbaar in control moet zijn over zijn vertrouwenstechnologie - met een deadline erbij. Eén: de eIDAS-reikwijdte verbreedt. eIDAS is technologieneutraal, dus de reikwijdte volgt de functie, niet de techniek. De RDI concludeerde in juni 2026 dat aanbieders van eDelivery ("digitale aangetekende post") vertrouwensdienstverleners zijn en onder eIDAS en de Cyberbeveiligingswet vallen - te beginnen bij Peppol-serviceproviders. Twee: eIDAS2 forceert de adoptie die eIDAS1 miste. Lidstaten moeten de Europese identity wallet introduceren, en relying parties moeten die accepteren - voor gereguleerde sectoren en grote platforms uiterlijk 6 december 2027. Overheden ontsluiten authentieke bronnen als claims en onboarden burgers met PID’s en credentials; de private sector lift mee, zowel door de wallet te accepteren als door eigen credentials uit te geven. De meesten halen onder tijdsdruk het vinkje met een gemakkelijke black-box-leverancier. Wij doen het omgekeerde: soeverein, certificeerbaar en gebouwd om te blijven - want dit ís nu je vertrouwensinfrastructuur.',
+      body: [
+        'De Europese digitale identity wallet bouwt op vertrouwensdiensten, en is waardevol voor enorm veel partijen - dus om mee te doen word je vanzelf het ecosysteem in gezogen. Geef je een credential of attestatie uit in de wallet, of vertrouw je erop, dan word je vertrouwensdienstverlener, vaak zonder het door te hebben. En vertrouwensdienstverleners worden in een zwaarder regime getrokken: eIDAS-verplichtingen plus NIS2 - in Nederland de Cyberbeveiligingswet - met beveiligingsplichten, toezicht en meldplicht.',
+        'Twee krachten versnellen dit. eIDAS is technologieneutraal, dus de reikwijdte volgt de functie, niet de techniek: de RDI concludeerde in juni 2026 dat zelfs aanbieders van eDelivery ("digitale aangetekende post") vertrouwensdienstverleners zijn - één illustratie van hoe wijd het net reikt. En eIDAS2 forceert de adoptie die eIDAS1 miste: lidstaten moeten de wallet leveren, en relying parties moeten die accepteren - voor gereguleerde sectoren en grote platforms uiterlijk 6 december 2027. De meesten halen onder tijdsdruk het vinkje met een gemakkelijke black-box-leverancier. Wij doen het omgekeerde: soeverein, certificeerbaar en gebouwd om te blijven - want dit ís nu je vertrouwensinfrastructuur. En het is onze thuisbasis: wallet, PID, credentials en attestaties zijn PKI en vertrouwensdiensten, exact wat we met de QTSP bouwden.',
+      ],
       deadlineLabel: 'Acceptatiedeadline eIDAS2-wallet',
       deadlineValue: '6 december 2027',
       sourceLabel: 'Bron: RDI - eDelivery-aanbieders vallen onder eIDAS en Cbw',
@@ -70,12 +75,12 @@ export const content = {
       intro: 'Ontwerpen én bouwen in één onafgebroken lijn - en onszelf er weer uit bouwen.',
       blocks: [
         {
-          title: 'Ontwerpen én bouwen - geen overdracht, geen gat.',
-          body: 'Bureaus adviseren en verdwijnen. Detacheerders bouwen wat een ander bedacht. Wij houden de hele keten vast - van architectuur tot het ijzer, van conceptie tot ceremonie - want een overdracht is óók een black box: op de naad lekt het begrip en de beheersing weg waar vertrouwen op rust.',
+          title: 'Ontwerp en bouw, in één hand.',
+          body: 'Bureaus adviseren en verdwijnen. Detacheerders bouwen wat een ander bedacht. Wij houden de hele keten vast - van architectuur tot het ijzer, van conceptie tot ceremonie - want elke overdracht tussen specialisten is óók een black box: op de naad lekt het begrip en de beheersing weg waar vertrouwen op rust.',
         },
         {
-          title: 'Bouwen, bewijzen, overdragen.',
-          body: 'Voor complexe initiatieven die de staande organisatie zou smoren, bouwen en operationaliseren we in een aparte hub tot het bewezen en werkend is - en dragen dan een draaiende eenheid over, met de kennis erbij, ingepast in de organisatie. Je wordt méér in control, niet afhankelijk van ons. We bouwen onszelf eruit.',
+          title: 'Bouwen, bewijzen, overdragen - de enige overdracht die telt is de laatste: naar jou.',
+          body: 'Voor complexe initiatieven die de staande organisatie zou smoren, bouwen en operationaliseren we in een aparte hub tot het bewezen en werkend is - en dragen dan een draaiende eenheid over aan je team, met de kennis erbij. Dit is het tegenovergestelde van een tussentijdse overdracht: geen naad die controle laat weglekken, maar een complete, bewuste eindoverdracht van een bewezen capaciteit die je zelf kunt beheersen. Je wordt méér in control, niet afhankelijk van ons. We bouwen onszelf eruit.',
         },
       ],
     },
@@ -112,27 +117,28 @@ export const content = {
       heading: 'Het collectief',
       lead: 'Een collectief van senior technologen - want alleen wie de hele stack doorgrondt, kan vertrouwen bouwen. Senioriteit is hier een vereiste, geen vinkje.',
       experience: '90+ jaar gecombineerde ervaring.',
+      // TODO (per brief §8): blurbs voorleggen aan elk lid ter bevestiging vóór publicatie; geen credentials verzinnen.
       members: [
         {
           name: 'Koen Bonnet',
           badge: 'Architecture & Product Delivery',
           href: 'https://goodgrid.nl',
           blurb:
-            'Enterprise-architectuur, product ownership, DevOps en hands-on Node.js-ontwikkeling. Van strategie tot productie.',
+            'Enterprise-architectuur, product ownership, DevOps en hands-on softwareontwikkeling (o.a. Node.js). Van strategie tot productie - de onafgebroken lijn.',
         },
         {
           name: 'Aniek Hannink',
           badge: 'Architecture & Secure Software',
           href: 'https://goodgrid.nl/magicchoice',
           blurb:
-            'Bedreven in het toepassen van fundamentele technieken om diensten écht te laten werken - van architectuur via implementatie tot beheer.',
+            'Past fundamentele technieken toe om vertrouwenskritische diensten écht te laten werken en standhouden - van architectuur via implementatie tot beheer.',
         },
         {
           name: 'Wiebe Woudstra',
           badge: 'Cloud Strategy & AI',
           href: 'https://www.beaudesert.nl',
           blurb:
-            'Cloud-infrastructuur, AI-advies, identity management en hands-on IT-operatie. Van interim-leiderschap tot end-to-end operationele oplevering.',
+            'Cloud-infrastructuur, AI-advies, identity management en hands-on IT-operatie - met oog voor soevereiniteit en grip. Van interim-leiderschap tot end-to-end operationele oplevering.',
         },
       ],
       delivery:
@@ -147,7 +153,7 @@ export const content = {
         },
         {
           title: "We adviseren de verschuiving niet alleen - we maken 'm.",
-          body: 'Voor een cliëntidentificatiedienst in een gereguleerde sector verhuisden we de dienst naar Europese infrastructuur, namen we beheer en doorontwikkeling in eigen hand van een externe integrator - build, operate, en straks hand-over - en vervangen we de ingekochte black-box-echtheidscontrole van identiteitsbewijzen door een modulaire, op open source gebouwde opzet die volledig onder controle staat, op de echtheidsengine zelf na, die we bewust isoleren en omkaderen. Het resultaat: soevereine infrastructuur, eigenaarschap zonder overdracht-gat, en black boxes vervangen door beheersbare bouwblokken - met hogere betrouwbaarheid.',
+          body: 'Voor een cliëntidentificatiedienst in een gereguleerde sector verhuisden we de dienst naar Europese infrastructuur, namen we beheer en doorontwikkeling in eigen hand van een externe integrator - build, operate, en straks hand-over - en vervangen we de ingekochte black-box-echtheidscontrole van identiteitsbewijzen door een modulaire, flexibele dienst op basis van open source. De echtheidscontrole-software doet daarin nog steeds het werk, maar de lock-in is weg - de component is vervangbaar en de architectuur eromheen is van ons. Het resultaat: soevereine infrastructuur, eigenaarschap zonder overdracht-gat, en black boxes omgezet in modulaire bouwblokken waar je niet meer aan vastzit - met hogere betrouwbaarheid.',
         },
       ],
       illustration:
@@ -175,14 +181,16 @@ export const content = {
       proof: 'Proof',
       contact: 'Contact',
       cta: 'Schedule a call',
+      menuOpen: 'Open menu',
+      menuClose: 'Close menu',
     },
     langSwitch: { label: 'Language', toNl: 'Switch to Dutch' },
     hero: {
       eyebrow: 'A collective of senior technologists',
       headline: 'Digital trust you can actually account for.',
       lead: 'We design and build trust-critical systems you fully understand and control - from architecture to the foundation. No black boxes.',
-      audience:
-        'For organisations that must be demonstrably in control of trust-critical technology - banks, healthcare and government, and the widening ring now drawn into eIDAS/Cbw scope or the European wallet: trust service providers, eDelivery/Peppol, and anyone running a trust-critical interface.',
+      hook:
+        'The European wallet is turning organisations that never were trust service providers into exactly that - with eIDAS and NIS2/Cyberbeveiligingswet obligations to match. We build the infrastructure that holds up to it.',
       ctaPrimary: 'Schedule a call',
       ctaSecondary: 'How we work',
     },
@@ -198,7 +206,10 @@ export const content = {
     whyNow: {
       kicker: 'Why now',
       heading: 'The law is setting the clock.',
-      body: 'Two reinforcing shifts are widening who must be in control of their trust technology - and adding a deadline. First, eIDAS scope is widening: it is technology-neutral, so scope follows function, not technology. In June 2026 the Dutch regulator RDI concluded that providers of eDelivery ("digital registered post") are trust service providers, falling under eIDAS and the Cybersecurity Act - starting with Peppol service providers. Second, eIDAS2 forces adoption where eIDAS1 stalled: Member States must introduce the European digital identity wallet, and relying parties must accept it - for regulated sectors and very large platforms by 6 December 2027. Governments unlock authentic sources as claims and onboard citizens with PIDs and credentials; the private sector rides along, both accepting the wallet and issuing its own credentials. Most will tick the box under time pressure with a convenient black-box vendor. We do the opposite: sovereign, certifiable, and built to last - because this is your trust infrastructure now.',
+      body: [
+        'The European digital identity wallet is built on trust services, and it is valuable to a huge range of parties - so to take part, you get pulled in. Issue a credential or attestation into the wallet, or rely on one, and you become a trust service provider, often without realising it. And trust service providers are pulled into a heavier regime: eIDAS obligations plus NIS2 - in the Netherlands the Cyberbeveiligingswet - with security duties, supervision and incident reporting.',
+        'Two forces accelerate this. eIDAS is technology-neutral, so its scope follows function, not technology: in June 2026 the Dutch regulator RDI concluded that even eDelivery providers ("digital registered post") are trust service providers - one illustration of how wide the net reaches. And eIDAS2 forces adoption where eIDAS1 stalled: Member States must provide the wallet, and relying parties must accept it - for regulated sectors and very large platforms by 6 December 2027. Most will tick the box under time pressure with a convenient black-box vendor. We do the opposite: sovereign, certifiable, and built to last - because this is your trust infrastructure now. And it is our home turf: wallet, PID, credentials and attestations are PKI and trust services, exactly what we built with the QTSP.',
+      ],
       deadlineLabel: 'eIDAS2 wallet acceptance deadline',
       deadlineValue: '6 December 2027',
       sourceLabel: 'Source: RDI - eDelivery providers fall under eIDAS and the Cybersecurity Act',
@@ -210,12 +221,12 @@ export const content = {
       intro: 'Design and build in one unbroken line - and build ourselves back out.',
       blocks: [
         {
-          title: 'Design and build - no handover, no gap.',
-          body: 'Consultancies advise and leave. Staffing firms build what someone else designed. We hold the whole chain - from architecture to the metal, from conception to ceremony - because a handover is itself a black box: at the seam, the understanding and control that trust depends on leak away.',
+          title: 'Design and build, held in one hand.',
+          body: 'Consultancies advise and leave. Staffing firms build what someone else designed. We hold the whole chain - from architecture to the metal, from conception to ceremony - because every handoff between specialists is itself a black box: at the seam, the understanding and control that trust depends on leak away.',
         },
         {
-          title: 'Build, prove, hand over.',
-          body: 'For complex initiatives that the standing organisation would smother, we build and operate in a separate hub until it is proven and operational - then hand over a running unit, with the knowledge transferred and embedded. You end up more in control, not dependent on us. We build ourselves out.',
+          title: 'Build, prove, transfer - the only handover that counts is the last one: to you.',
+          body: 'For complex initiatives that the standing organisation would smother, we build and operate in a separate hub until it is proven and operational - then transfer a running unit to your team, with the knowledge embedded. This is the opposite of a mid-stream handoff: not a seam that leaks control, but a complete, deliberate transfer of a proven capability you can run yourself. You end up more in control, not dependent on us. We build ourselves out.',
         },
       ],
     },
@@ -252,27 +263,28 @@ export const content = {
       heading: 'The collective',
       lead: 'A collective of senior technologists - because only those who comprehend the whole stack can build trust. Seniority here is a requirement, not a badge.',
       experience: '90+ years of combined experience.',
+      // TODO (per brief §8): have each member confirm their blurb before publishing; do not invent credentials.
       members: [
         {
           name: 'Koen Bonnet',
           badge: 'Architecture & Product Delivery',
           href: 'https://goodgrid.nl',
           blurb:
-            'Enterprise architecture, product ownership, DevOps, and hands-on Node.js development. From strategy to production.',
+            'Enterprise architecture, product ownership, DevOps, and hands-on software development (incl. Node.js). From strategy to production - the unbroken line.',
         },
         {
           name: 'Aniek Hannink',
           badge: 'Architecture & Secure Software',
           href: 'https://goodgrid.nl/magicchoice',
           blurb:
-            'Skilled at applying fundamental techniques to make services actually work - from architecture through implementation to operations.',
+            'Applies fundamental techniques to make trust-critical services actually work and hold up - from architecture through implementation to operations.',
         },
         {
           name: 'Wiebe Woudstra',
           badge: 'Cloud Strategy & AI',
           href: 'https://www.beaudesert.nl',
           blurb:
-            'Cloud infrastructure, AI consulting, identity management, and hands-on IT operations. From interim leadership to end-to-end operational delivery.',
+            'Cloud infrastructure, AI consulting, identity management, and hands-on IT operations - with an eye for sovereignty and control. From interim leadership to end-to-end operational delivery.',
         },
       ],
       delivery:
@@ -287,7 +299,7 @@ export const content = {
         },
         {
           title: "We don't just advise the shift - we make it.",
-          body: 'For a client-identification service in a regulated sector, we moved the service onto European infrastructure, took its operation and development in-house from an external integrator - build, operate, and soon hand over - and are replacing the procured black-box ID-authenticity software with a modular, open-source-based setup that is fully under control, except the authenticity engine itself, which we deliberately isolate and contain. The result: sovereign infrastructure, ownership without a handover gap, and black boxes replaced by controllable building blocks - with higher reliability.',
+          body: 'For a client-identification service in a regulated sector, we moved the service onto European infrastructure, took its operation and development in-house from an external integrator - build, operate, and soon hand over - and are replacing the procured black-box ID-authenticity solution with a modular, flexible service built on open source. The authenticity software still does the actual checking, but the lock-in is gone - the component is swappable and the architecture around it is ours. The result: sovereign infrastructure, ownership without a handover gap, and black boxes turned into modular building blocks you are no longer locked into - with higher reliability.',
         },
       ],
       illustration:

@@ -1,6 +1,15 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import './App.css'
 import { useLanguage } from './i18n'
+
+const NAV_ITEMS = [
+  { id: 'conviction', key: 'conviction' },
+  { id: 'why-now', key: 'whyNow' },
+  { id: 'approach', key: 'approach' },
+  { id: 'services', key: 'services' },
+  { id: 'collective', key: 'collective' },
+  { id: 'proof', key: 'proof' },
+]
 
 const track = (eventName, data) => {
   if (typeof window !== 'undefined' && window.umami) {
@@ -34,6 +43,65 @@ function LanguageSwitch({ locale, setLanguage }) {
 
 function App() {
   const { locale, setLanguage, t } = useLanguage()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef(null)
+  const menuButtonRef = useRef(null)
+
+  const closeMenu = useCallback(() => setMenuOpen(false), [])
+
+  // Lock body scroll, trap focus, and close on Escape while the mobile menu is open.
+  useEffect(() => {
+    if (!menuOpen) return
+
+    document.body.style.overflow = 'hidden'
+
+    const focusable = () =>
+      menuRef.current
+        ? Array.from(
+            menuRef.current.querySelectorAll(
+              'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )
+          )
+        : []
+
+    focusable()[0]?.focus()
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false)
+        menuButtonRef.current?.focus()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const items = focusable()
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = ''
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [menuOpen])
+
+  // Close the menu once the viewport is wide enough to show the inline nav.
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1000px)')
+    const onChange = (e) => {
+      if (e.matches) setMenuOpen(false)
+    }
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   useEffect(() => {
     const sections = ['conviction', 'why-now', 'approach', 'services', 'ai', 'collective', 'proof', 'contact']
@@ -68,24 +136,73 @@ function App() {
           </a>
 
           <nav className="nav" aria-label="Primary navigation">
-            <a className="navLink" href="#conviction">{t.nav.conviction}</a>
-            <a className="navLink" href="#why-now">{t.nav.whyNow}</a>
-            <a className="navLink" href="#approach">{t.nav.approach}</a>
-            <a className="navLink" href="#services">{t.nav.services}</a>
-            <a className="navLink" href="#collective">{t.nav.collective}</a>
-            <a className="navLink" href="#proof">{t.nav.proof}</a>
+            {NAV_ITEMS.map((item) => (
+              <a className="navLink" href={`#${item.id}`} key={item.id}>
+                {t.nav[item.key]}
+              </a>
+            ))}
           </nav>
 
           <div className="headerActions">
-            <LanguageSwitch locale={locale} setLanguage={setLanguage} />
-            <a
-              className="btn btnPrimary"
-              href="#contact"
-              onClick={() => track('click', { element: 'header-cta' })}
+            <div className="headerDesktopActions">
+              <LanguageSwitch locale={locale} setLanguage={setLanguage} />
+              <a
+                className="btn btnPrimary"
+                href="#contact"
+                onClick={() => track('click', { element: 'header-cta' })}
+              >
+                {t.nav.cta}
+              </a>
+            </div>
+
+            <button
+              type="button"
+              className={`hamburger${menuOpen ? ' hamburgerOpen' : ''}`}
+              aria-label={menuOpen ? t.nav.menuClose : t.nav.menuOpen}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              ref={menuButtonRef}
+              onClick={() => setMenuOpen((open) => !open)}
             >
-              {t.nav.cta}
-            </a>
+              <span className="hamburgerBox" aria-hidden="true">
+                <span className="hamburgerInner" />
+              </span>
+            </button>
           </div>
+        </div>
+
+        <div
+          id="mobile-menu"
+          className={`mobileMenu${menuOpen ? ' mobileMenuOpen' : ''}`}
+          ref={menuRef}
+          hidden={!menuOpen}
+        >
+          <nav className="mobileMenuInner container" aria-label="Mobile navigation">
+            {NAV_ITEMS.map((item) => (
+              <a
+                className="mobileNavLink"
+                href={`#${item.id}`}
+                key={item.id}
+                onClick={closeMenu}
+              >
+                {t.nav[item.key]}
+              </a>
+            ))}
+
+            <div className="mobileMenuFooter">
+              <LanguageSwitch locale={locale} setLanguage={setLanguage} />
+              <a
+                className="btn btnPrimary"
+                href="#contact"
+                onClick={() => {
+                  track('click', { element: 'mobile-menu-cta' })
+                  closeMenu()
+                }}
+              >
+                {t.nav.cta}
+              </a>
+            </div>
+          </nav>
         </div>
       </header>
 
@@ -96,7 +213,7 @@ function App() {
               <div className="eyebrow">{t.hero.eyebrow}</div>
               <h1>{t.hero.headline}</h1>
               <p className="lead">{t.hero.lead}</p>
-              <p className="audienceStrip">{t.hero.audience}</p>
+              <p className="hookLine">{t.hero.hook}</p>
 
               <div className="heroCtas">
                 <a
@@ -143,7 +260,9 @@ function App() {
             <div className="band">
               <div className="bandKicker">{t.whyNow.kicker}</div>
               <h2>{t.whyNow.heading}</h2>
-              <p className="bandBody">{t.whyNow.body}</p>
+              {t.whyNow.body.map((paragraph, i) => (
+                <p className="bandBody" key={i}>{paragraph}</p>
+              ))}
               <div className="bandFooter">
                 <div className="bandDeadline">
                   <span className="bandDeadlineLabel">{t.whyNow.deadlineLabel}</span>
