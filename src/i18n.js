@@ -135,7 +135,7 @@ export const content = {
     },
     proof: {
       heading: 'We hebben gebouwd wat de meesten alleen beweren.',
-      body: 'We ontwierpen en bouwden een gekwalificeerde vertrouwensdienst (QTSP) van begin tot eind. We zetten het ontwerp van onze voorgangers opzij omdat het niet te certificeren was, ontwierpen het opnieuw, en realiseerden het zelf - van de software tot de Root CA en Issuing CA, van het plannen tot het uitvoeren van de sleutelceremonie. Van conceptie tot ceremonie.',
+      body: 'We ontwierpen en bouwden een gekwalificeerde vertrouwensdienst voor de uitgifte van gekwalificeerde handtekeningcertificaten - voor een beroepsgroep en uiteindelijk alle Nederlandse burgers. Het oorspronkelijke ontwerp, gemaakt zonder voldoende kennis van eIDAS, was te breed en niet te certificeren. We brachten het terug tot de minimale certificeerbare kern - die eerst certificeren, daarna uitbouwen vanuit een onderhoudspositie, agile en zonder stakeholders te overspoelen met blokkerende beslissingen - en bouwden het zelf: software, Root CA en Issuing CA, sleutelceremonie. Hernieuwd ontwerp en bouw in zes maanden; ISO 27001- en eIDAS/ETSI-certificering in nog eens zes - geslaagd. Van een niet-certificeerbaar concept naar een gecertificeerde, operationele vertrouwensdienst in een jaar.',
     },
     contact: {
       heading: 'Vertrouwen dat je niet kunt uitbesteden? Laten we praten.',
@@ -259,7 +259,7 @@ export const content = {
     },
     proof: {
       heading: 'We have built what most only claim.',
-      body: 'We designed and built a Qualified Trust Service Provider end to end. We set aside our predecessors’ design because it was not certifiable, redesigned it, and realised it ourselves - from the software to the Root CA and Issuing CA, from planning to executing the key ceremony. From conception to ceremony.',
+      body: 'We designed and built a Qualified Trust Service Provider for issuing qualified electronic-signature certificates - for a professional group and, ultimately, all Dutch citizens. The original design, made without sufficient eIDAS knowledge, was too broad and could not be certified. We cut it back to the minimal certifiable core - certify that first, then expand from a position of maintenance audits, agile and without flooding stakeholders with blocking decisions - and built it ourselves: software, Root CA and Issuing CA, key ceremony. Renewed design and build in six months; ISO 27001 and eIDAS/ETSI certification in another six - achieved. From an uncertifiable concept to a certified, operational trust service in a year.',
     },
     contact: {
       heading: 'Trust you can’t outsource? Let’s talk.',
