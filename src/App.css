@@ -52,6 +52,47 @@
   object-fit: contain;
 }
 
+.headerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.langSwitch {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 999px;
+  border: 1px solid var(--nt-border);
+  background: rgba(255 255 255 / 0.65);
+}
+
+.langBtn {
+  border: none;
+  background: transparent;
+  color: rgba(3 16 32 / 0.62);
+  font-weight: 650;
+  font-size: 0.82rem;
+  letter-spacing: 0.4px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.langBtn:hover {
+  color: var(--nt-ink);
+}
+
+.langBtnActive {
+  background: var(--nt-ink);
+  color: #fff;
+}
+
+.langBtnActive:hover {
+  color: #fff;
+}
+
 .nav {
   display: none;
   align-items: center;
@@ -207,14 +248,60 @@
   padding: 18px;
 }
 
+.cardWide {
+  background:
+    radial-gradient(900px 420px at 10% 0%, rgb(var(--nt-blush-rgb) / 0.20), transparent 62%),
+    radial-gradient(900px 420px at 92% 10%, rgb(var(--nt-neon-rgb) / 0.10), transparent 60%),
+    radial-gradient(900px 420px at 70% 120%, rgb(var(--nt-blush-light-rgb) / 0.25), transparent 62%),
+    rgba(255 255 255 / 0.92);
+  border: 1px solid var(--nt-border);
+  border-radius: var(--nt-radius);
+  box-shadow: 0 10px 32px rgba(45 42 40 / 0.06);
+  padding: 26px;
+}
+
+.cardWide .cardText {
+  max-width: 80ch;
+  font-size: 1.05rem;
+}
+
+.proofCard {
+  background:
+    radial-gradient(900px 420px at 88% 0%, rgb(var(--nt-neon-rgb) / 0.18), transparent 60%),
+    radial-gradient(900px 420px at 8% 110%, rgb(var(--nt-blush-rgb) / 0.28), transparent 62%),
+    rgba(255 255 255 / 0.92);
+}
+
 .cardTitle {
   font-weight: 750;
   letter-spacing: 0.1px;
   margin-bottom: 10px;
 }
 
+.cardSubtitle {
+  color: var(--nt-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+  margin-top: -6px;
+  margin-bottom: 12px;
+}
+
 .cardText {
   color: rgba(3 16 32 / 0.74);
+}
+
+.prose {
+  display: grid;
+  gap: 14px;
+  max-width: 80ch;
+}
+
+.supportingLine {
+  font-size: 0.98rem;
+}
+
+.nowrapInline {
+  white-space: nowrap;
 }
 
 .profileCard {
