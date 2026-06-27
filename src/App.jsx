@@ -192,7 +192,7 @@ function App() {
                     {card.badge}
                   </div>
                   <div className="cardTitle">{card.title}</div>
-                  <div className="cardSubtitle">{card.subtitle}</div>
+                  {locale === 'nl' && <div className="cardSubtitle">{card.subtitle}</div>}
                   <p className="cardText">{card.body}</p>
                 </div>
               ))}
