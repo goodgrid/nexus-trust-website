@@ -96,6 +96,7 @@ function App() {
               <div className="eyebrow">{t.hero.eyebrow}</div>
               <h1>{t.hero.headline}</h1>
               <p className="lead">{t.hero.lead}</p>
+              <p className="audienceStrip">{t.hero.audience}</p>
 
               <div className="heroCtas">
                 <a

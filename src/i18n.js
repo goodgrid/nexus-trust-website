@@ -41,6 +41,8 @@ export const content = {
       eyebrow: 'Een collectief van senior technologen',
       headline: 'Digitaal vertrouwen dat je écht kunt verantwoorden.',
       lead: 'Voor banken, zorg en overheid ontwerpen én bouwen we vertrouwenskritische systemen die je volledig begrijpt en beheerst — van architectuur tot het fundament. Geen black boxes.',
+      audience:
+        'Voor organisaties die aantoonbaar in control moeten zijn over vertrouwenskritische technologie — banken, zorg en overheid, en de groeiende kring die nu binnen eIDAS/Cbw-scope of de Europese wallet valt: vertrouwensdienstverleners, eDelivery/Peppol, en iedereen met een vertrouwenskritisch koppelvlak.',
       ctaPrimary: 'Plan een gesprek',
       ctaSecondary: 'Zo werken we',
     },
@@ -163,6 +165,8 @@ export const content = {
       eyebrow: 'A collective of senior technologists',
       headline: 'Digital trust you can actually account for.',
       lead: 'For banks, healthcare and government, we design and build trust-critical systems you fully understand and control — from architecture to the foundation. No black boxes.',
+      audience:
+        'For organisations that must be demonstrably in control of trust-critical technology — banks, healthcare and government, and the widening ring now drawn into eIDAS/Cbw scope or the European wallet: trust service providers, eDelivery/Peppol, and anyone running a trust-critical interface.',
       ctaPrimary: 'Schedule a call',
       ctaSecondary: 'How we work',
     },
