@@ -10,15 +10,15 @@ const STORAGE_KEY = 'nt-lang'
 export const meta = {
   nl: {
     lang: 'nl',
-    title: 'Nexus Trust - Soeverein digitaal vertrouwen',
+    title: 'Nexus Trust - Soeverein digitaal vertrouwen & eIDAS-vertrouwensdiensten',
     description:
-      'Voor banken, zorg en overheid ontwerpen én bouwen we vertrouwenskritische systemen die je volledig begrijpt en beheerst. Geen black boxes.',
+      'Voor banken, zorg en overheid ontwerpen én bouwen we soevereine, eIDAS-conforme vertrouwensdiensten - van QTSP en PKI tot certificeerbare systemen die je volledig beheerst. Geen black boxes.',
   },
   en: {
     lang: 'en',
-    title: 'Nexus Trust - Sovereign digital trust',
+    title: 'Nexus Trust - Sovereign digital trust & eIDAS trust services',
     description:
-      'For banks, healthcare and government, we design and build trust-critical systems you fully understand and control. No black boxes.',
+      'For banks, healthcare and government, we design and build sovereign, eIDAS-ready trust services - from QTSP and PKI to certifiable systems you fully control. No black boxes.',
   },
 }
 

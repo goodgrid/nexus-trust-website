@@ -193,6 +193,12 @@ Render as three cards. Keep the Dutch working names; provide an English label al
 - Keep `logo.png`; ensure OG image still resolves per locale.
 - **Accessibility & performance.** Semantic headings, sufficient contrast, keyboard-navigable nav and language switch, alt text. Keep it fast and lightweight; no heavy frameworks added unnecessarily.
 - **Analytics/cookies.** If anything is added, default to the most privacy-preserving option and a clear consent choice; do not add non-essential tracking by default.
+- **Target keywords (capability- and intent-based, NOT client names).** Optimise to be found by buyers who have the problem — searching on the capability and the regulation — not by people searching for a specific former client. Weave these naturally into headings, body copy and the per-locale meta titles/descriptions; do not keyword-stuff, and never use a client's name for SEO.
+  - *Capability (EN):* qualified trust service provider, QTSP, qualified electronic signature certificates, eIDAS, eIDAS2, ETSI, Root CA, Issuing CA, PKI, ISO 27001, digital sovereignty, sovereign digital infrastructure, verifiable credentials, attestations (QEAA/EAA), PID.
+  - *Capability (NL):* gekwalificeerde vertrouwensdienst, vertrouwensdienstverlener, gekwalificeerde certificaten elektronische handtekening, eIDAS, eIDAS2, ETSI, Root CA, Issuing CA, PKI, ISO 27001, digitale soevereiniteit, soevereine digitale infrastructuur, verifiable credentials, PID.
+  - *Regulation / context (EN & NL):* EUDI wallet / Europese digitale identity wallet, wallet acceptance obligation / wallet-acceptatieplicht, relying party, Cyberbeveiligingswet (Cbw), NIS2, eDelivery, Peppol, ERDS.
+  - *Intent / long-tail (give these dedicated headings or future insight articles):* "do I fall under eIDAS" / "val ik onder eIDAS", "eIDAS2 wallet readiness", "eIDAS scope assessment", "build a qualified trust service" / "gekwalificeerde vertrouwensdienst bouwen", "EUDI wallet integration", "wallet-acceptatieplicht 2027", "sovereign trust infrastructure" / "soevereine vertrouwensinfrastructuur".
+  - The "Why now" band and the Dependency X-Ray service already map well onto this intent; reflect the same vocabulary there. Consider an insights/blog section over time to capture the long-tail regulatory queries.
 
 ---
 
@@ -218,6 +224,7 @@ Render as three cards. Keep the Dutch working names; provide an English label al
 - [ ] Focus framed by situation (must be in control of trust-critical tech), not as a closed sector list; beachhead + wider ring + vision conveyed. The hero audience strip (§4) makes this explicit without a separate strategy section.
 - [ ] The three members and their profile links retained and reframed.
 - [ ] Metadata, canonical and OG/Twitter tags updated per locale.
+- [ ] SEO optimised on capability/intent keywords (per locale), never on a client name; no client name, logo or registry link without explicit clearance.
 - [ ] Nationality kept implicit; no fabricated clients/metrics; AI not overclaimed.
 - [ ] Accessible, fast, privacy-preserving.
 - [ ] Changes committed in reviewable steps with a summary.
