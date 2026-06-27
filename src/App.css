@@ -533,27 +533,52 @@
 
 @media (min-width: 760px) {
   .timeline {
+    position: relative;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
+  }
+
+  /* One continuous connector behind all the dots. */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    height: 2px;
+    background: var(--nt-border);
   }
 
   .timelineStep {
     padding-left: 0;
     padding-top: 22px;
-    padding-right: 16px;
+  }
+
+  /* Per-step vertical connector is only for the mobile layout. */
+  .timelineStep::after {
+    display: none;
   }
 
   .timelineStep::before {
     top: 0;
   }
 
-  .timelineStep::after {
-    left: 16px;
+  /* First step: dot on the left, text reads to the right of it. */
+  .timelineStep:first-child {
+    text-align: left;
+    padding-right: 16px;
+  }
+
+  /* Later steps: dot on the right, text sits to the left of the dot so it
+     fills the segment instead of pushing the whole timeline wider. */
+  .timelineStep:not(:first-child) {
+    text-align: right;
+    padding-left: 16px;
+  }
+
+  .timelineStep:not(:first-child)::before {
+    left: auto;
     right: 0;
-    top: 5px;
-    bottom: auto;
-    width: auto;
-    height: 2px;
   }
 }
 
