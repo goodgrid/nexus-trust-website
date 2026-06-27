@@ -10,15 +10,15 @@ const STORAGE_KEY = 'nt-lang'
 export const meta = {
   nl: {
     lang: 'nl',
-    title: 'Nexus Trust - Soeverein digitaal vertrouwen & eIDAS-vertrouwensdiensten',
+    title: 'Nexus Trust - Soeverein digitaal vertrouwen',
     description:
-      'Voor banken, zorg en overheid ontwerpen én bouwen we soevereine, eIDAS-conforme vertrouwensdiensten - van QTSP en PKI tot certificeerbare systemen die je volledig beheerst. Geen black boxes.',
+      'Voor organisaties die aantoonbaar in control moeten zijn over vertrouwenskritische technologie ontwerpen én bouwen we soevereine, certificeerbare systemen - eIDAS, wallet, PKI. Geen black boxes.',
   },
   en: {
     lang: 'en',
-    title: 'Nexus Trust - Sovereign digital trust & eIDAS trust services',
+    title: 'Nexus Trust - Sovereign digital trust',
     description:
-      'For banks, healthcare and government, we design and build sovereign, eIDAS-ready trust services - from QTSP and PKI to certifiable systems you fully control. No black boxes.',
+      'For organisations that must be demonstrably in control of trust-critical technology, we design and build sovereign, certifiable systems - eIDAS, wallet, PKI. No black boxes.',
   },
 }
 
@@ -51,6 +51,9 @@ export const content = {
       body: 'De gemaksproducten van hyperscalers en SaaS zijn black boxes. Handig, totdat je je technologie moet kunnen verantwoorden - en dan blijkt dat je niet kunt certificeren, aantonen of vertrouwen wat je niet doorgrondt. Zodra het echt moet kloppen, telt elke laag, tot op het ijzer, en wordt gemak een aansprakelijkheid. Daarom is soevereiniteit voor ons geen politiek standpunt maar een technische voorwaarde voor vertrouwen: je kunt niet vertrouwen wat een ander voor je verbergt. Europa besteedde dit vak uit. Wij helpen organisaties het weer te beheersen.',
       supporting:
         'Gebouwd op Europese kaders - eIDAS, de AI Act, ISO 27001 - als ontwerp-uitgangspunt, niet als compliance-vinkje achteraf.',
+      structuralHeading: 'Soevereiniteit is structureel, geen vlag.',
+      structuralBody:
+        "Soevereiniteit op basis van leveranciersnationaliteit is broos. Kies vandaag een Europese leverancier en een overname die je niet in de hand hebt maakt 'm morgen buitenlands - je soevereiniteit verdampt via een eigendomswisseling op een laag die je nooit bezat. Echte soevereiniteit is structureel: controle over de datalaag, portabiliteit en open standaarden, zodat een eigendomswisseling je niet alsnog vastzet. Eigendom en jurisdictie horen bij wat je moet kunnen beheersen - niet alleen de techniek.",
     },
     whyNow: {
       kicker: 'Waarom nu',
@@ -132,10 +135,23 @@ export const content = {
             'Cloud-infrastructuur, AI-advies, identity management en hands-on IT-operatie. Van interim-leiderschap tot end-to-end operationele oplevering.',
         },
       ],
+      delivery:
+        'We zijn een kernteam dat het echte werk doet - ontwerpen en bouwen, de onafgebroken lijn. De technische realisatie blijft in de kern; het begrip en de beheersing die vertrouwen vereist besteden we niet uit. Naar behoefte vullen we aan met aangrenzende, gespecialiseerde rollen buiten de techniek: (eIDAS-)juridische expertise en een parttime compliance officer tijdens de operate-fase. We vullen aan rónd de kern - we geven de kern niet weg. Geen overdracht, geen bodyshopping.',
     },
     proof: {
-      heading: 'Wij bouwden wat anderen alleen beweren.',
-      body: 'We ontwierpen en bouwden een gekwalificeerde vertrouwensdienst voor de uitgifte van gekwalificeerde handtekeningcertificaten - voor een beroepsgroep en uiteindelijk alle Nederlandse burgers. Het oorspronkelijke ontwerp, gemaakt zonder voldoende kennis van eIDAS, was te breed en niet te certificeren. We brachten het terug tot de minimale certificeerbare kern - die eerst certificeren, daarna uitbouwen vanuit een onderhoudspositie, agile en zonder stakeholders te overspoelen met blokkerende beslissingen - en bouwden het zelf: software, Root CA en Issuing CA, sleutelceremonie. Hernieuwd ontwerp en bouw in zes maanden; ISO 27001- en eIDAS/ETSI-certificering in nog eens zes - geslaagd. Van een niet-certificeerbaar concept naar een gecertificeerde, operationele vertrouwensdienst in een jaar.',
+      heading: 'Bewijs',
+      cases: [
+        {
+          title: 'Wij bouwden wat anderen alleen beweren.',
+          body: 'We ontwierpen en bouwden een gekwalificeerde vertrouwensdienst voor de uitgifte van gekwalificeerde handtekeningcertificaten - voor een beroepsgroep en uiteindelijk alle Nederlandse burgers. Het oorspronkelijke ontwerp, gemaakt zonder voldoende kennis van eIDAS, was te breed en niet te certificeren. We brachten het terug tot de minimale certificeerbare kern - die eerst certificeren, daarna uitbouwen vanuit een onderhoudspositie, agile en zonder stakeholders te overspoelen met blokkerende beslissingen - en bouwden het zelf: software, Root CA en Issuing CA, sleutelceremonie. Hernieuwd ontwerp en bouw in zes maanden; ISO 27001- en eIDAS/ETSI-certificering in nog eens zes - geslaagd. Van een niet-certificeerbaar concept naar een gecertificeerde, operationele vertrouwensdienst in een jaar.',
+        },
+        {
+          title: "We adviseren de verschuiving niet alleen - we maken 'm.",
+          body: 'Voor een cliëntidentificatiedienst in een gereguleerde sector verhuisden we de dienst naar Europese infrastructuur, namen we beheer en doorontwikkeling in eigen hand van een externe integrator - build, operate, en straks hand-over - en vervangen we de ingekochte black-box-echtheidscontrole van identiteitsbewijzen door een modulaire, op open source gebouwde opzet die volledig onder controle staat, op de echtheidsengine zelf na, die we bewust isoleren en omkaderen. Het resultaat: soevereine infrastructuur, eigenaarschap zonder overdracht-gat, en black boxes vervangen door beheersbare bouwblokken - met hogere betrouwbaarheid.',
+        },
+      ],
+      illustration:
+        'Voor een Europese retail-multinational ontwierpen we de aanpak én de tooling en voerden we het migratieproces voor ~5 miljoen HR-documenten - zó ingericht dat op individueel documentniveau verantwoording mogelijk is. Ontwerp, bouw en uitvoering in één hand; juist daardoor verifieerbare integriteit op schaal, met gevoelige persoonsgegevens.',
     },
     contact: {
       heading: 'Vertrouwen dat je niet kunt uitbesteden? Laten we praten.',
@@ -175,6 +191,9 @@ export const content = {
       body: 'The convenient products of hyperscalers and SaaS are black boxes. Useful, until you must account for your technology - and then it turns out you cannot certify, demonstrate or trust what you do not comprehend. When it truly has to be right, every layer counts, down to the metal, and convenience becomes a liability. That is why sovereignty, for us, is not a political stance but a technical precondition for trust: you cannot trust what someone else hides from you. Europe outsourced this craft. We help organisations master it again.',
       supporting:
         'Built on European frameworks - eIDAS, the AI Act, ISO 27001 - as a design principle, not a compliance checkbox afterwards.',
+      structuralHeading: 'Sovereignty is structural, not a flag.',
+      structuralBody:
+        'Sovereignty by vendor nationality is fragile. Pick a European supplier today and an acquisition you do not control can make it foreign tomorrow - and your sovereignty evaporates through an ownership change at a layer you never owned. Real sovereignty is structural: control of the data layer, portability and open standards, so a change of ownership cannot trap you. Ownership and jurisdiction are part of what you must be able to control - not just the technology.',
     },
     whyNow: {
       kicker: 'Why now',
@@ -256,10 +275,23 @@ export const content = {
             'Cloud infrastructure, AI consulting, identity management, and hands-on IT operations. From interim leadership to end-to-end operational delivery.',
         },
       ],
+      delivery:
+        'We are a core team that does the real work - design and build, the unbroken line. The technical realisation stays in the core; we do not outsource the understanding and control that trust requires. We extend, as needed, with adjacent specialist roles that sit outside the engineering core: (eIDAS) legal expertise, and a part-time compliance officer during the operating phase. We add around the core - we never give the core away. No handover, no bodyshopping.',
     },
     proof: {
-      heading: 'We built what others only claim.',
-      body: 'We designed and built a Qualified Trust Service Provider for issuing qualified electronic-signature certificates - for a professional group and, ultimately, all Dutch citizens. The original design, made without sufficient eIDAS knowledge, was too broad and could not be certified. We cut it back to the minimal certifiable core - certify that first, then expand from a position of maintenance audits, agile and without flooding stakeholders with blocking decisions - and built it ourselves: software, Root CA and Issuing CA, key ceremony. Renewed design and build in six months; ISO 27001 and eIDAS/ETSI certification in another six - achieved. From an uncertifiable concept to a certified, operational trust service in a year.',
+      heading: 'Proof',
+      cases: [
+        {
+          title: 'We built what others only claim.',
+          body: 'We designed and built a Qualified Trust Service Provider for issuing qualified electronic-signature certificates - for a professional group and, ultimately, all Dutch citizens. The original design, made without sufficient eIDAS knowledge, was too broad and could not be certified. We cut it back to the minimal certifiable core - certify that first, then expand from a position of maintenance audits, agile and without flooding stakeholders with blocking decisions - and built it ourselves: software, Root CA and Issuing CA, key ceremony. Renewed design and build in six months; ISO 27001 and eIDAS/ETSI certification in another six - achieved. From an uncertifiable concept to a certified, operational trust service in a year.',
+        },
+        {
+          title: "We don't just advise the shift - we make it.",
+          body: 'For a client-identification service in a regulated sector, we moved the service onto European infrastructure, took its operation and development in-house from an external integrator - build, operate, and soon hand over - and are replacing the procured black-box ID-authenticity software with a modular, open-source-based setup that is fully under control, except the authenticity engine itself, which we deliberately isolate and contain. The result: sovereign infrastructure, ownership without a handover gap, and black boxes replaced by controllable building blocks - with higher reliability.',
+        },
+      ],
+      illustration:
+        'For a European retail multinational, we designed the approach and the tooling and ran the migration process for ~5 million HR documents - built so accountability holds at the level of each individual document. Design, build and operate in one hand; that is what makes integrity verifiable at scale, with sensitive personal data.',
     },
     contact: {
       heading: 'Trust you can’t outsource? Let’s talk.',

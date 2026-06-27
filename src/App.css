@@ -411,6 +411,36 @@
   white-space: nowrap;
 }
 
+.structuralCard {
+  margin-top: 18px;
+  max-width: 82ch;
+  border-left: 3px solid rgb(var(--nt-neon-rgb) / 0.55);
+}
+
+.deliveryModel {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: var(--nt-radius);
+  border: 1px dashed var(--nt-border);
+  background: rgba(255 255 255 / 0.55);
+  color: rgba(3 16 32 / 0.74);
+  max-width: 82ch;
+}
+
+.proofCard .cardText {
+  font-size: 1rem;
+}
+
+.proofIllustration {
+  margin-top: 14px;
+  padding-left: 14px;
+  border-left: 3px solid var(--nt-border);
+  color: var(--nt-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-width: 80ch;
+}
+
 .profileCard {
   padding: 0;
   overflow: hidden;

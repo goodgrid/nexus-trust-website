@@ -130,6 +130,11 @@ function App() {
               <p className="lead">{t.conviction.body}</p>
               <p className="muted supportingLine">{t.conviction.supporting}</p>
             </div>
+
+            <div className="card structuralCard">
+              <div className="cardTitle">{t.conviction.structuralHeading}</div>
+              <p className="cardText">{t.conviction.structuralBody}</p>
+            </div>
           </div>
         </section>
 
@@ -244,17 +249,27 @@ function App() {
                 </div>
               ))}
             </div>
+
+            <p className="deliveryModel">{t.collective.delivery}</p>
           </div>
         </section>
 
         <section id="proof" className="section">
           <div className="container">
-            <div className="cardWide proofCard">
-              <div className="sectionHead">
-                <h2>{t.proof.heading}</h2>
-              </div>
-              <p className="cardText">{t.proof.body}</p>
+            <div className="sectionHead">
+              <h2>{t.proof.heading}</h2>
             </div>
+
+            <div className="grid2">
+              {t.proof.cases.map((proofCase) => (
+                <div className="cardWide proofCard" key={proofCase.title}>
+                  <div className="cardTitle">{proofCase.title}</div>
+                  <p className="cardText">{proofCase.body}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="proofIllustration">{t.proof.illustration}</p>
           </div>
         </section>
 
