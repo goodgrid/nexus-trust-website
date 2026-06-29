@@ -485,6 +485,8 @@
   margin-top: 22px;
   display: grid;
   gap: 18px;
+  /* Match the body copy width so the timeline never runs wider than the text. */
+  max-width: 82ch;
 }
 
 .timelineStep {
@@ -534,7 +536,10 @@
 @media (min-width: 760px) {
   .timeline {
     position: relative;
-    grid-template-columns: repeat(4, 1fr);
+    /* Steps 1 and 2 share the first segment (label 1 sits right of its dot,
+       label 2 left of its dot), so give them half-width columns to keep all
+       three gaps between dots equal. */
+    grid-template-columns: 1fr 1fr 2fr 2fr;
     gap: 0;
   }
 
@@ -732,21 +737,117 @@
   border-color: rgba(45 42 40 / 0.18);
 }
 
-.cta {
+.contactGrid {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
+.contactIntro {
+  padding: 4px 0;
+}
+
+.contactDetails {
   display: grid;
   gap: 14px;
-  align-items: center;
-  padding: 18px;
+  margin-top: 20px;
+}
+
+.contactDetail {
+  display: grid;
+  gap: 2px;
+}
+
+.contactDetailLabel {
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  color: var(--nt-muted);
+}
+
+.contactDetailValue {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--nt-ink);
+}
+
+.contactDetailValue:hover {
+  text-decoration: underline;
+}
+
+.contactForm {
+  display: grid;
+  gap: 14px;
+  padding: 22px;
   border-radius: calc(var(--nt-radius) + 2px);
   border: 1px solid var(--nt-border);
   background: linear-gradient(135deg, rgba(228 209 209 / 0.25), rgba(242 232 232 / 0.30), rgba(204 255 0 / 0.12));
   box-shadow: 0 10px 32px rgba(45 42 40 / 0.06);
 }
 
-.ctaActions {
+.contactFormHeading {
+  font-weight: 750;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.formField {
+  display: grid;
+  gap: 6px;
+}
+
+.formField label {
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: var(--nt-ink);
+}
+
+.formField input,
+.formField textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--nt-border);
+  background: rgba(255 255 255 / 0.85);
+  color: var(--nt-text);
+  font: inherit;
+  resize: vertical;
+}
+
+.formField input:focus,
+.formField textarea:focus {
+  outline: 2px solid rgb(var(--nt-neon-rgb) / 0.65);
+  outline-offset: 1px;
+  border-color: rgb(var(--nt-neon-rgb) / 0.65);
+}
+
+/* Honeypot: kept in the DOM for bots, removed from the visual + a11y tree. */
+.hpField {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.formActions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.formStatus {
+  margin: 0;
+  font-size: 0.94rem;
+}
+
+.formStatusOk {
+  color: #3d6b00;
+}
+
+.formStatusErr {
+  color: #9a1b1b;
 }
 
 .footer {
@@ -817,9 +918,9 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .cta {
-    grid-template-columns: 1.4fr 0.6fr;
-    padding: 22px;
+  .contactGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
   }
 }
 

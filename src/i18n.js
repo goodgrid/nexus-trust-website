@@ -131,7 +131,7 @@ export const content = {
           badge: 'Architecture & Product Delivery',
           href: 'https://goodgrid.nl',
           blurb:
-            'Enterprise-architectuur, product ownership, DevOps en hands-on softwareontwikkeling (o.a. Node.js). Van strategie tot productie - de onafgebroken lijn.',
+            'Enterprise-architectuur, product ownership, DevOps en hands-on softwareontwikkeling. Van strategie tot productie - de onafgebroken lijn.',
         },
         {
           name: 'Aniek Hannink',
@@ -170,6 +170,19 @@ export const content = {
       heading: 'Vertrouwen dat je niet kunt uitbesteden? Laten we praten.',
       body: 'Een kort, direct gesprek om te zien of we kunnen helpen. Geen verplichtingen, geen salestraject.',
       cta: 'Neem contact op',
+      emailLabel: 'E-mail',
+      phoneLabel: 'Telefoon',
+      form: {
+        heading: 'Stuur een bericht',
+        name: 'Naam',
+        email: 'E-mailadres',
+        organisation: 'Organisatie (optioneel)',
+        message: 'Bericht',
+        submit: 'Versturen',
+        sending: 'Versturen…',
+        success: 'Bedankt — je bericht is verstuurd. We nemen snel contact met je op.',
+        error: 'Er ging iets mis bij het versturen. Probeer het opnieuw of mail ons direct.',
+      },
     },
     footer: {
       tag: 'Soeverein digitaal vertrouwen',
@@ -284,7 +297,7 @@ export const content = {
           badge: 'Architecture & Product Delivery',
           href: 'https://goodgrid.nl',
           blurb:
-            'Enterprise architecture, product ownership, DevOps, and hands-on software development (incl. Node.js). From strategy to production - the unbroken line.',
+            'Enterprise architecture, product ownership, DevOps, and hands-on software development. From strategy to production - the unbroken line.',
         },
         {
           name: 'Aniek Hannink',
@@ -323,6 +336,19 @@ export const content = {
       heading: 'Trust you can’t outsource? Let’s talk.',
       body: 'A short, direct conversation to see whether we can help. No obligations, no sales process.',
       cta: 'Get in touch',
+      emailLabel: 'Email',
+      phoneLabel: 'Phone',
+      form: {
+        heading: 'Send a message',
+        name: 'Name',
+        email: 'Email address',
+        organisation: 'Organisation (optional)',
+        message: 'Message',
+        submit: 'Send',
+        sending: 'Sending…',
+        success: 'Thank you — your message has been sent. We’ll be in touch shortly.',
+        error: 'Something went wrong while sending. Please try again or email us directly.',
+      },
     },
     footer: {
       tag: 'Sovereign digital trust',

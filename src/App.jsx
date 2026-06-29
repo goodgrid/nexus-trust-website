@@ -17,7 +17,89 @@ const track = (eventName, data) => {
   }
 }
 
-const CONTACT_EMAIL = 'info@nexustrust.eu'
+const CONTACT_EMAIL = 'hi@nexustrust.eu'
+const CONTACT_PHONE_DISPLAY = '+31 30 227 0378'
+const CONTACT_PHONE_LINK = '+31302270378'
+
+function ContactForm({ t }) {
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    if (status === 'sending') return
+
+    const form = event.currentTarget
+    const data = new FormData(form)
+    const payload = {
+      name: data.get('name'),
+      email: data.get('email'),
+      organisation: data.get('organisation'),
+      message: data.get('message'),
+      company: data.get('company'), // honeypot
+    }
+
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error('request failed')
+      setStatus('success')
+      form.reset()
+      track('contact-form-submitted')
+    } catch {
+      setStatus('error')
+      track('contact-form-error')
+    }
+  }
+
+  return (
+    <form className="contactForm" onSubmit={onSubmit} noValidate>
+      <h3 className="contactFormHeading">{t.contact.form.heading}</h3>
+
+      <div className="formField">
+        <label htmlFor="cf-name">{t.contact.form.name}</label>
+        <input id="cf-name" name="name" type="text" required maxLength={200} autoComplete="name" />
+      </div>
+
+      <div className="formField">
+        <label htmlFor="cf-email">{t.contact.form.email}</label>
+        <input id="cf-email" name="email" type="email" required maxLength={200} autoComplete="email" />
+      </div>
+
+      <div className="formField">
+        <label htmlFor="cf-org">{t.contact.form.organisation}</label>
+        <input id="cf-org" name="organisation" type="text" maxLength={200} autoComplete="organization" />
+      </div>
+
+      <div className="formField">
+        <label htmlFor="cf-message">{t.contact.form.message}</label>
+        <textarea id="cf-message" name="message" required maxLength={5000} rows={5} />
+      </div>
+
+      {/* Honeypot: hidden from users, off the tab order; bots fill it. */}
+      <div className="hpField" aria-hidden="true">
+        <label htmlFor="cf-company">Company</label>
+        <input id="cf-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
+      <div className="formActions">
+        <button className="btn btnPrimary" type="submit" disabled={status === 'sending'}>
+          {status === 'sending' ? t.contact.form.sending : t.contact.form.submit}
+        </button>
+      </div>
+
+      <p className="formStatus formStatusOk" role="status" hidden={status !== 'success'}>
+        {t.contact.form.success}
+      </p>
+      <p className="formStatus formStatusErr" role="alert" hidden={status !== 'error'}>
+        {t.contact.form.error}
+      </p>
+    </form>
+  )
+}
 
 function LanguageSwitch({ locale, setLanguage }) {
   return (
@@ -404,20 +486,36 @@ function App() {
 
         <section id="contact" className="section">
           <div className="container">
-            <div className="cta">
-              <div>
+            <div className="contactGrid">
+              <div className="contactIntro">
                 <h2>{t.contact.heading}</h2>
                 <p className="muted">{t.contact.body}</p>
+
+                <div className="contactDetails">
+                  <div className="contactDetail">
+                    <span className="contactDetailLabel">{t.contact.emailLabel}</span>
+                    <a
+                      className="contactDetailValue"
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      onClick={() => track('click', { element: 'contact-email' })}
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                  </div>
+                  <div className="contactDetail">
+                    <span className="contactDetailLabel">{t.contact.phoneLabel}</span>
+                    <a
+                      className="contactDetailValue"
+                      href={`tel:${CONTACT_PHONE_LINK}`}
+                      onClick={() => track('click', { element: 'contact-phone' })}
+                    >
+                      {CONTACT_PHONE_DISPLAY}
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="ctaActions">
-                <a
-                  className="btn btnPrimary"
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  onClick={() => track('click', { element: 'contact-email' })}
-                >
-                  {t.contact.cta}
-                </a>
-              </div>
+
+              <ContactForm t={t} />
             </div>
           </div>
         </section>
