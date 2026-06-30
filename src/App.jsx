@@ -1,5 +1,15 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import './App.css'
+import { useLanguage } from './i18n'
+
+const NAV_ITEMS = [
+  { id: 'conviction', key: 'conviction' },
+  { id: 'why-now', key: 'whyNow' },
+  { id: 'approach', key: 'approach' },
+  { id: 'services', key: 'services' },
+  { id: 'collective', key: 'collective' },
+  { id: 'proof', key: 'proof' },
+]
 
 const track = (eventName, data) => {
   if (typeof window !== 'undefined' && window.umami) {
@@ -7,9 +17,176 @@ const track = (eventName, data) => {
   }
 }
 
+const CONTACT_EMAIL = 'hi@nexustrust.eu'
+const CONTACT_PHONE_DISPLAY = '+31 30 227 0378'
+const CONTACT_PHONE_LINK = '+31302270378'
+
+function ContactForm({ t }) {
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    if (status === 'sending') return
+
+    const form = event.currentTarget
+    const data = new FormData(form)
+    const payload = {
+      name: data.get('name'),
+      email: data.get('email'),
+      organisation: data.get('organisation'),
+      message: data.get('message'),
+      company: data.get('company'), // honeypot
+    }
+
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error('request failed')
+      setStatus('success')
+      form.reset()
+      track('contact-form-submitted')
+    } catch {
+      setStatus('error')
+      track('contact-form-error')
+    }
+  }
+
+  return (
+    <form className="contactForm" onSubmit={onSubmit} noValidate>
+      <h3 className="contactFormHeading">{t.contact.form.heading}</h3>
+
+      <div className="formField">
+        <label htmlFor="cf-name">{t.contact.form.name}</label>
+        <input id="cf-name" name="name" type="text" required maxLength={200} autoComplete="name" />
+      </div>
+
+      <div className="formField">
+        <label htmlFor="cf-email">{t.contact.form.email}</label>
+        <input id="cf-email" name="email" type="email" required maxLength={200} autoComplete="email" />
+      </div>
+
+      <div className="formField">
+        <label htmlFor="cf-org">{t.contact.form.organisation}</label>
+        <input id="cf-org" name="organisation" type="text" maxLength={200} autoComplete="organization" />
+      </div>
+
+      <div className="formField">
+        <label htmlFor="cf-message">{t.contact.form.message}</label>
+        <textarea id="cf-message" name="message" required maxLength={5000} rows={5} />
+      </div>
+
+      {/* Honeypot: hidden from users, off the tab order; bots fill it. */}
+      <div className="hpField" aria-hidden="true">
+        <label htmlFor="cf-company">Company</label>
+        <input id="cf-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
+      <div className="formActions">
+        <button className="btn btnPrimary" type="submit" disabled={status === 'sending'}>
+          {status === 'sending' ? t.contact.form.sending : t.contact.form.submit}
+        </button>
+      </div>
+
+      <p className="formStatus formStatusOk" role="status" hidden={status !== 'success'}>
+        {t.contact.form.success}
+      </p>
+      <p className="formStatus formStatusErr" role="alert" hidden={status !== 'error'}>
+        {t.contact.form.error}
+      </p>
+    </form>
+  )
+}
+
+function LanguageSwitch({ locale, setLanguage }) {
+  return (
+    <div className="langSwitch" role="group" aria-label="Language / Taal">
+      {['nl', 'en'].map((code) => (
+        <button
+          key={code}
+          type="button"
+          className={`langBtn${locale === code ? ' langBtnActive' : ''}`}
+          aria-pressed={locale === code}
+          lang={code}
+          onClick={() => {
+            setLanguage(code)
+            track('language-switch', { to: code })
+          }}
+        >
+          {code.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 function App() {
+  const { locale, setLanguage, t } = useLanguage()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef(null)
+  const menuButtonRef = useRef(null)
+
+  const closeMenu = useCallback(() => setMenuOpen(false), [])
+
+  // Lock body scroll, trap focus, and close on Escape while the mobile menu is open.
   useEffect(() => {
-    const sections = ['collective', 'approach', 'services', 'contact']
+    if (!menuOpen) return
+
+    document.body.style.overflow = 'hidden'
+
+    const focusable = () =>
+      menuRef.current
+        ? Array.from(
+            menuRef.current.querySelectorAll(
+              'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            )
+          )
+        : []
+
+    focusable()[0]?.focus()
+
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false)
+        menuButtonRef.current?.focus()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const items = focusable()
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.body.style.overflow = ''
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [menuOpen])
+
+  // Close the menu once the viewport is wide enough to show the inline nav.
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1000px)')
+    const onChange = (e) => {
+      if (e.matches) setMenuOpen(false)
+    }
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  useEffect(() => {
+    const sections = ['conviction', 'why-now', 'approach', 'services', 'ai', 'collective', 'proof', 'contact']
     const observed = new Set()
 
     const observer = new IntersectionObserver(
@@ -41,13 +218,73 @@ function App() {
           </a>
 
           <nav className="nav" aria-label="Primary navigation">
-            <a className="navLink" href="#collective">The Collective</a>
-            <a className="navLink" href="#approach">Approach</a>
-            <a className="navLink" href="#services">Services</a>
-            <a className="navLink" href="#contact">Contact</a>
+            {NAV_ITEMS.map((item) => (
+              <a className="navLink" href={`#${item.id}`} key={item.id}>
+                {t.nav[item.key]}
+              </a>
+            ))}
           </nav>
 
-          <a className="btn btnPrimary" href="#contact" onClick={() => track('click', { element: 'header-cta' })}>Get in touch</a>
+          <div className="headerActions">
+            <div className="headerDesktopActions">
+              <LanguageSwitch locale={locale} setLanguage={setLanguage} />
+              <a
+                className="btn btnPrimary"
+                href="#contact"
+                onClick={() => track('click', { element: 'header-cta' })}
+              >
+                {t.nav.cta}
+              </a>
+            </div>
+
+            <button
+              type="button"
+              className={`hamburger${menuOpen ? ' hamburgerOpen' : ''}`}
+              aria-label={menuOpen ? t.nav.menuClose : t.nav.menuOpen}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              ref={menuButtonRef}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span className="hamburgerBox" aria-hidden="true">
+                <span className="hamburgerInner" />
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="mobile-menu"
+          className={`mobileMenu${menuOpen ? ' mobileMenuOpen' : ''}`}
+          ref={menuRef}
+          hidden={!menuOpen}
+        >
+          <nav className="mobileMenuInner container" aria-label="Mobile navigation">
+            {NAV_ITEMS.map((item) => (
+              <a
+                className="mobileNavLink"
+                href={`#${item.id}`}
+                key={item.id}
+                onClick={closeMenu}
+              >
+                {t.nav[item.key]}
+              </a>
+            ))}
+
+            <div className="mobileMenuFooter">
+              <LanguageSwitch locale={locale} setLanguage={setLanguage} />
+              <a
+                className="btn btnPrimary"
+                href="#contact"
+                onClick={() => {
+                  track('click', { element: 'mobile-menu-cta' })
+                  closeMenu()
+                }}
+              >
+                {t.nav.cta}
+              </a>
+            </div>
+          </nav>
         </div>
       </header>
 
@@ -55,17 +292,26 @@ function App() {
         <section className="hero">
           <div className="container heroGrid">
             <div className="heroCopy">
-              <div className="eyebrow">Collective of senior freelancers</div>
-              <h1>Unstick complex IT challenges - by making the right call.</h1>
-              <p className="lead">
-                We are a collective of senior technologists with 90+ years of combined experience.
-                We help organisations move forward when complex IT initiatives stall - sometimes by continuing,
-                sometimes by deliberately stopping and resetting.
-              </p>
+              <div className="eyebrow">{t.hero.eyebrow}</div>
+              <h1>{t.hero.headline}</h1>
+              <p className="lead">{t.hero.lead}</p>
+              <p className="hookLine">{t.hero.hook}</p>
 
               <div className="heroCtas">
-                <a className="btn btnPrimary" href="#contact" onClick={() => track('click', { element: 'hero-schedule-call' })}>Schedule a call</a>
-                <a className="btn btnGhost" href="#approach" onClick={() => track('click', { element: 'hero-our-approach' })}>Our approach</a>
+                <a
+                  className="btn btnPrimary"
+                  href="#contact"
+                  onClick={() => track('click', { element: 'hero-schedule-call' })}
+                >
+                  {t.hero.ctaPrimary}
+                </a>
+                <a
+                  className="btn btnGhost"
+                  href="#approach"
+                  onClick={() => track('click', { element: 'hero-our-approach' })}
+                >
+                  {t.hero.ctaSecondary}
+                </a>
               </div>
             </div>
             <div className="heroVisual">
@@ -74,67 +320,55 @@ function App() {
           </div>
         </section>
 
-        <section id="collective" className="section">
+        <section id="conviction" className="section">
           <div className="container">
             <div className="sectionHead">
-              <h2>The collective</h2>
-              <p className="muted">Three complementary profiles. One shared standard of responsibility.</p>
+              <h2>{t.conviction.heading}</h2>
+            </div>
+            <div className="prose">
+              <p className="lead">{t.conviction.body}</p>
+              <p className="muted supportingLine">{t.conviction.supporting}</p>
             </div>
 
-            <div className="grid2">
-              <div className="card">
-                <div className="cardTitle">Some decisions should not be made alone.</div>
-                <p className="cardText">
-                  <p>When delivery stalls, costs rise and confidence erodes, the hardest question is not how to continue, but whether continuing still makes sense.</p>
-
-                  <p>We work as a collective because these decisions require multiple senior perspectives - technical, organisational and operational. We challenge each other, validate conclusions, and take responsibility for the outcome together.</p>
-
-                  <p>No consultancy theatre. No single-ego calls. Just experienced judgement.</p>
-                </p>
-              </div>
-
-              <div className="card">
-                <div className="cardTitle">We’ve seen organisations grow, stall, recover - and sometimes fail.</div>
-                <p className="cardText">
-                  Our strength lies in combining deep technological fundamentals with a realistic understanding of organisations under pressure. We know modern architectures, cloud-native systems and applied AI - but more importantly, we know when technology is the problem, and when it isn’t.
-
-                </p>
-              </div>
+            <div className="card structuralCard">
+              <div className="cardTitle">{t.conviction.structuralHeading}</div>
+              <p className="cardText">{t.conviction.structuralBody}</p>
             </div>
+          </div>
+        </section>
 
-            <div className="grid3" style={{ marginTop: 14 }}>
-              <div className="card profileCard">
-                <img className="profilePhoto" src="/Koen Bonnet.jpg.avif" alt="Koen Bonnet" />
-                <div className="profileContent">
-                  <div className="badge badgeCyan">Architecture & Product Delivery</div>
-                  <a className="cardTitle profileLink" href="https://goodgrid.nl" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Koen Bonnet' })}>Koen Bonnet <span className="linkIcon">↗</span></a>
-                  <p className="cardText">
-                    Enterprise architecture, product ownership, DevOps, and hands-on Node.js development.
-                    From strategy to production.
-                  </p>
-                </div>
+        <section id="why-now" className="section">
+          <div className="container">
+            <div className="band">
+              <div className="bandKicker">{t.whyNow.kicker}</div>
+              <h2>{t.whyNow.heading}</h2>
+              {t.whyNow.body.map((paragraph, i) => (
+                <p className="bandBody" key={i}>{paragraph}</p>
+              ))}
+
+              <div className="timeline" role="list" aria-label={t.whyNow.timelineLabel}>
+                {t.whyNow.timeline.map((step) => (
+                  <div className="timelineStep" role="listitem" key={step.date}>
+                    <span className="timelineDate">{step.date}</span>
+                    <span className="timelineLabel">{step.label}</span>
+                  </div>
+                ))}
               </div>
 
-              <div className="card profileCard">
-                <img className="profilePhoto" src="/Aniek Hannink.jpg.avif" alt="Aniek Hannink" />
-                <div className="profileContent">
-                  <div className="badge badgePink">Architecture & Secure Software</div>
-                  <a className="cardTitle profileLink" href="https://goodgrid.nl/magicchoice" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Aniek Hannink' })}>Aniek Hannink <span className="linkIcon">↗</span></a>
-                  <p className="cardText">
-                    Skilled at applying fundamental techniques to make services actually work — from architecture through implementation to operations.
-                  </p>
+              <div className="bandFooter">
+                <div className="bandDeadline">
+                  <span className="bandDeadlineLabel">{t.whyNow.deadlineLabel}</span>
+                  <span className="bandDeadlineValue">{t.whyNow.deadlineValue}</span>
                 </div>
-              </div>
-
-              <div className="card profileCard">
-                <img className="profilePhoto" src="/Wiebe Woudstra.jpg.avif" alt="Wiebe Woudstra" />
-                <div className="profileContent">
-                  <div className="badge badgeAmber">Cloud Strategy & AI</div>
-                  <a className="cardTitle profileLink" href="https://www.beaudesert.nl" target="_blank" rel="noopener" onClick={() => track('click', { element: 'profile-link', name: 'Wiebe Woudstra' })}>Wiebe Woudstra <span className="linkIcon">↗</span></a>
-                  <p className="cardText">
-                    Cloud infrastructure, AI consulting, identity management, and hands-on IT operations. From interim leadership to end-to-end operational delivery.
-                  </p>
-                </div>
+                <a
+                  className="bandSource"
+                  href={t.whyNow.sourceHref}
+                  target="_blank"
+                  rel="noopener"
+                  onClick={() => track('click', { element: 'why-now-source' })}
+                >
+                  {t.whyNow.sourceLabel} <span className="linkIcon">↗</span>
+                </a>
               </div>
             </div>
           </div>
@@ -143,52 +377,17 @@ function App() {
         <section id="approach" className="section">
           <div className="container">
             <div className="sectionHead">
-              <h2>Our approach: the hard reset</h2>
-              <p className="muted">
-                Stalled initiatives rarely fail because people aren’t working hard enough.
-
-                They fail because the underlying assumptions no longer hold. In those cases, optimisation only increases sunk cost.
-
-                Our approach starts with one question: is this still the right thing to continue?
-              </p>
+              <h2>{t.approach.heading}</h2>
+              <p className="muted">{t.approach.intro}</p>
             </div>
 
             <div className="grid2">
-              <div className="card">
-                <div className="cardTitle">We start without attachment to past decisions.</div>
-                <p className="cardText">
-                  <p>With decades of experience, we recognise patterns quickly - but we deliberately suspend solutions until we understand the real constraints: technical debt, organisational dynamics, regulatory pressure and delivery reality.</p>
-
-                  <p>The goal is not blame. The goal is clarity.</p>
-
-                </p>
-              </div>
-
-              <div className="card">
-                <div className="cardTitle">Sound decisions require both fundamentals and current possibilities.</div>
-                <p className="cardText">
-                  We understand systems from the ground up - data models, integration patterns, failure modes - and we know what modern technology makes possible today. We use neither dogma nor hype; only what materially improves the situation.
-
-                </p>
-              </div>
-
-              <div className="card">
-                <div className="cardTitle">Sometimes stopping is the fastest way forward.</div>
-                <p className="cardText">
-                  Not everything is rebuilt. What still has value is preserved. What no longer serves the organisation is deliberately replaced.
-
-                  We design and build systems that work in practice - and that internal teams can actually maintain.
-                </p>
-              </div>
-
-              <div className="card">
-                <div className="cardTitle">We are not here to become permanent.</div>
-                <p className="cardText">
-                  Our work ends with a system that runs, is understood, documented, and owned by your
-                  organisation. Knowledge transfer and operational stability are part of the outcome - not an afterthought.
-
-                </p>
-              </div>
+              {t.approach.blocks.map((block) => (
+                <div className="card" key={block.title}>
+                  <div className="cardTitle">{block.title}</div>
+                  <p className="cardText">{block.body}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -196,55 +395,127 @@ function App() {
         <section id="services" className="section">
           <div className="container">
             <div className="sectionHead">
-              <h2>Services</h2>
+              <h2>{t.services.heading}</h2>
+              <p className="muted">{t.services.intro}</p>
+            </div>
+
+            <div className="grid3">
+              {t.services.cards.map((card, i) => (
+                <div className="card" key={card.title}>
+                  <div
+                    className={`badge ${['badgeCyan', 'badgePink', 'badgeAmber'][i % 3]}`}
+                  >
+                    {card.badge}
+                  </div>
+                  <div className="cardTitle">{card.title}</div>
+                  {locale === 'nl' && <div className="cardSubtitle">{card.subtitle}</div>}
+                  <p className="cardText">{card.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="ai" className="section">
+          <div className="container">
+            <div className="cardWide">
+              <div className="sectionHead">
+                <h2>{t.ai.heading}</h2>
+              </div>
+              <p className="cardText">{t.ai.body}</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="collective" className="section">
+          <div className="container">
+            <div className="sectionHead">
+              <h2>{t.collective.heading}</h2>
               <p className="muted">
-                From diagnosis to production. We take on the full journey, or exactly the part where you're stuck.
+                {t.collective.lead} <span className="nowrapInline">{t.collective.experience}</span>
               </p>
             </div>
 
             <div className="grid3">
-              <div className="card">
-                <div className="badge badgeCyan">Diagnosis</div>
-                <div className="cardTitle">Assessment & Reset Advisory</div>
-                <p className="cardText">
-                  Independent assessment of stalled initiatives.
-                  Where are we really stuck? What options still make sense? And what is the most responsible next step?
-                </p>
-              </div>
-
-              <div className="card">
-                <div className="badge badgePink">Architecture</div>
-                <div className="cardTitle">Redesign & Modernization</div>
-                <p className="cardText">
-                  Pragmatic architecture and system redesign. Built to last, built to operate - not to impress.
-                </p>
-              </div>
-
-              <div className="card">
-                <div className="badge badgeAmber">Delivery</div>
-                <div className="cardTitle">Hands-on Implementation</div>
-                <p className="cardText">
-                  We don’t stop at advice. We implement, stabilise, and stay involved until the new situation actually works.
-
-                </p>
-              </div>
+              {t.collective.members.map((member) => (
+                <div className="card profileCard" key={member.name}>
+                  <img
+                    className="profilePhoto"
+                    src={`/${member.name}.jpg.avif`}
+                    alt={member.name}
+                  />
+                  <div className="profileContent">
+                    <div className="badge badgeCyan">{member.badge}</div>
+                    <a
+                      className="cardTitle profileLink"
+                      href={member.href}
+                      target="_blank"
+                      rel="noopener"
+                      onClick={() => track('click', { element: 'profile-link', name: member.name })}
+                    >
+                      {member.name} <span className="linkIcon">↗</span>
+                    </a>
+                    <p className="cardText">{member.blurb}</p>
+                  </div>
+                </div>
+              ))}
             </div>
+
+            <p className="deliveryModel">{t.collective.delivery}</p>
+          </div>
+        </section>
+
+        <section id="proof" className="section">
+          <div className="container">
+            <div className="sectionHead">
+              <h2>{t.proof.heading}</h2>
+            </div>
+
+            <div className="grid2">
+              {t.proof.cases.map((proofCase) => (
+                <div className="cardWide proofCard" key={proofCase.title}>
+                  <div className="cardTitle">{proofCase.title}</div>
+                  <p className="cardText">{proofCase.body}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="proofIllustration">{t.proof.illustration}</p>
           </div>
         </section>
 
         <section id="contact" className="section">
           <div className="container">
-            <div className="cta">
-              <div>
-                <h2>Stuck - or unsure whether to continue?</h2>
-                <p className="muted">
-                  A short, direct conversation to assess whether we can help. No obligations. No sales process.
+            <div className="contactGrid">
+              <div className="contactIntro">
+                <h2>{t.contact.heading}</h2>
+                <p className="muted">{t.contact.body}</p>
 
-                </p>
+                <div className="contactDetails">
+                  <div className="contactDetail">
+                    <span className="contactDetailLabel">{t.contact.emailLabel}</span>
+                    <a
+                      className="contactDetailValue"
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      onClick={() => track('click', { element: 'contact-email' })}
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                  </div>
+                  <div className="contactDetail">
+                    <span className="contactDetailLabel">{t.contact.phoneLabel}</span>
+                    <a
+                      className="contactDetailValue"
+                      href={`tel:${CONTACT_PHONE_LINK}`}
+                      onClick={() => track('click', { element: 'contact-phone' })}
+                    >
+                      {CONTACT_PHONE_DISPLAY}
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="ctaActions">
-                <a className="btn btnPrimary" href="mailto:info@nexustrust.eu" onClick={() => track('click', { element: 'contact-email' })}>Get in touch</a>
-              </div>
+
+              <ContactForm t={t} />
             </div>
           </div>
         </section>
@@ -253,15 +524,27 @@ function App() {
       <footer className="footer">
         <div className="container footerInner">
           <div className="footerBrand">
-            <img className="footerLogo" src="/logo.png" alt="Nexus Trust" style={{ width: 44, height: 44 }} />
+            <img
+              className="footerLogo"
+              src="/logo.png"
+              alt="Nexus Trust"
+              style={{ width: 44, height: 44 }}
+            />
             <div>
               <div className="footerName">Nexus Trust</div>
-              <div className="footerTag">Collective for technological reset</div>
+              <div className="footerTag">{t.footer.tag}</div>
             </div>
           </div>
 
           <div className="footerLinks">
-            <a className="footerLink" href="mailto:info@nexustrust.eu" onClick={() => track('click', { element: 'footer-email' })}>Email</a>
+            <LanguageSwitch locale={locale} setLanguage={setLanguage} />
+            <a
+              className="footerLink"
+              href={`mailto:${CONTACT_EMAIL}`}
+              onClick={() => track('click', { element: 'footer-email' })}
+            >
+              {t.footer.emailLabel}
+            </a>
           </div>
         </div>
       </footer>
