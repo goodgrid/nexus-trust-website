@@ -123,7 +123,6 @@ export const content = {
     collective: {
       heading: 'Het collectief',
       lead: 'Een collectief van senior technologen - want alleen wie de hele stack doorgrondt, kan vertrouwen bouwen. Senioriteit is hier een vereiste, geen vinkje.',
-      experience: '90+ jaar gecombineerde ervaring.',
       // TODO (per brief §8): blurbs voorleggen aan elk lid ter bevestiging vóór publicatie; geen credentials verzinnen.
       members: [
         {
@@ -139,13 +138,6 @@ export const content = {
           href: 'https://goodgrid.nl/magicchoice',
           blurb:
             'Past fundamentele technieken toe om vertrouwenskritische diensten écht te laten werken en standhouden - van architectuur via implementatie tot beheer.',
-        },
-        {
-          name: 'Wiebe Woudstra',
-          badge: 'Cloud Strategy & AI',
-          href: 'https://www.beaudesert.nl',
-          blurb:
-            'Cloud-infrastructuur, AI-advies, identity management en hands-on IT-operatie - met oog voor soevereiniteit en grip. Van interim-leiderschap tot end-to-end operationele oplevering.',
         },
       ],
       delivery:
@@ -289,7 +281,6 @@ export const content = {
     collective: {
       heading: 'The collective',
       lead: 'A collective of senior technologists - because only those who comprehend the whole stack can build trust. Seniority here is a requirement, not a badge.',
-      experience: '90+ years of combined experience.',
       // TODO (per brief §8): have each member confirm their blurb before publishing; do not invent credentials.
       members: [
         {
@@ -305,13 +296,6 @@ export const content = {
           href: 'https://goodgrid.nl/magicchoice',
           blurb:
             'Applies fundamental techniques to make trust-critical services actually work and hold up - from architecture through implementation to operations.',
-        },
-        {
-          name: 'Wiebe Woudstra',
-          badge: 'Cloud Strategy & AI',
-          href: 'https://www.beaudesert.nl',
-          blurb:
-            'Cloud infrastructure, AI consulting, identity management, and hands-on IT operations - with an eye for sovereignty and control. From interim leadership to end-to-end operational delivery.',
         },
       ],
       delivery:

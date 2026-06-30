@@ -431,12 +431,10 @@ function App() {
           <div className="container">
             <div className="sectionHead">
               <h2>{t.collective.heading}</h2>
-              <p className="muted">
-                {t.collective.lead} <span className="nowrapInline">{t.collective.experience}</span>
-              </p>
+              <p className="muted">{t.collective.lead}</p>
             </div>
 
-            <div className="grid3">
+            <div className="grid2">
               {t.collective.members.map((member) => (
                 <div className="card profileCard" key={member.name}>
                   <img
