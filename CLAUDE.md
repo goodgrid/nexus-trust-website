@@ -84,7 +84,7 @@ Single-page site with anchored sections is acceptable (matches current), but str
 7. **The collective** - who we are, why seniority is a requirement.
 8. **Proof** - two cases: the QTSP (certified, completed) and the live client-identification case (build-operate-transfer + sovereignty in action).
 9. **Contact / CTA.**
-10. **Footer** - logo, contact, language switch, minimal legal.
+10. **Footer** - logo, contact, language switch, minimal legal, and the personality tag as a small sign-off ("The trust plumbers" / "Loodgieters in vertrouwen").
 
 ---
 
@@ -103,6 +103,8 @@ Register note: this is buyer-facing. Keep the nationality **implicit** (no "Amer
 - Headline: **Digitaal vertrouwen dat je écht kunt verantwoorden.**
 - Subhead: We ontwerpen én bouwen vertrouwenskritische systemen die je volledig begrijpt en beheerst - van architectuur tot het fundament. Geen black boxes.
 - Primary CTA: *Plan een gesprek* - Secondary: *Zo werken we*
+
+**Personality tag (small and secondary - a chip near the logo or a kicker, never the headline).** Gives the brand a human face alongside the serious promise. EN: *The trust plumbers.* NL: *Loodgieters in vertrouwen.* The eyebrow ("senior technologists") carries credibility; this tag carries character - keep both. Use sparingly. Do not translate it literally elsewhere: the English "trust plumbers" carries the wink, and the NL tag has a deliberate double meaning ("in vertrouwen" = in confidence / discreet) - leave it exactly as written. (See the plumbing metaphor and guardrail below.)
 
 **Hook line (one slim line directly under the hero subhead - do NOT make this a separate section).** The subhead carries the promise; this line is the "this is suddenly you" hook - it names why a fast-widening group is being pulled into the trust world. Keep it to one or two sentences. The full mechanism is explained in the "Why now" band; the situation-based focus lives there and in "who it's for", so do not turn this into a sector list in the subhead.
 - EN: *The European wallet is turning organisations that never were trust service providers into exactly that - with eIDAS and NIS2/Cyberbeveiligingswet obligations to match. We build the infrastructure that holds up to it.*
@@ -123,6 +125,14 @@ Optional supporting line (both languages): built on European frameworks - eIDAS,
 **Supporting point - sovereignty is structural, not a flag (both languages; a sharp differentiator).**
 - EN: Sovereignty by vendor nationality is fragile. Pick a European supplier today and an acquisition you do not control can make it foreign tomorrow - and your sovereignty evaporates through an ownership change at a layer you never owned. Real sovereignty is structural: control of the data layer, portability and open standards, so a change of ownership cannot trap you. Ownership and jurisdiction are part of what you must be able to control - not just the technology.
 - NL: Soevereiniteit op basis van leveranciersnationaliteit is broos. Kies vandaag een Europese leverancier en een overname die je niet in de hand hebt maakt 'm morgen buitenlands - je soevereiniteit verdampt via een eigendomswisseling op een laag die je nooit bezat. Echte soevereiniteit is structureel: controle over de datalaag, portabiliteit en open standaarden, zodat een eigendomswisseling je niet alsnog vastzet. Eigendom en jurisdictie horen bij wat je moet kunnen beheersen - niet alleen de techniek.
+
+---
+
+## 5a. The plumbing metaphor (short band)
+
+A short, memorable band right after the conviction - it explains why the "trust plumbers" name fits and ties the whole offer together (build new, find the leaks). Keep it to two or three sentences; classy, not gimmicky, no cartoon plumber.
+- EN: *Trust is like plumbing: invisible, under the floor, and everything runs on it - until it leaks. We build it right, and we find the leaks before they flood.*
+- NL: *Vertrouwen is als leidingwerk: onzichtbaar, onder de vloer, en alles draait erop - tot het lekt. Wij leggen het goed aan, en vinden de lekken voordat ze de boel onder water zetten.*
 
 ---
 
@@ -163,7 +173,7 @@ Two short sub-blocks. **Important:** these two touch the word "handover" from op
 
 ## 7. Copy - Services (three forms, ascending commitment)
 
-Render as three cards. Keep the Dutch working names; provide an English label alongside.
+Render as three cards. Keep the Dutch working names; provide an English label alongside. Optionally give each card a light plumbing-metaphor micro-kicker (one short italic line, secondary - never replacing the real name): card 1 *Where does your trust leak? / Waar lekt je vertrouwen?*; card 2 *New pipes, laid right. / Nieuwe leidingen, goed gelegd.*; card 3 *We hand you the keys, not a black box. / Wij geven je de sleutels, geen black box.* Keep these subtle; the formal service names lead.
 
 **1. Dependency X-Ray / Afhankelijkheidsdoorlichting** - *the entry point*
 - EN: We map your stack layer by layer - from application to hardware and management - and show where trust leaks: the black boxes, the dependencies, the layers you cannot certify. AI is explicitly included: which models and providers, where is the lock-in and the pay-per-query risk, does data leave Europe, where are the AI Act gaps? Pure insight, no promises. You get a prioritised map of dependencies and a concrete route to control.
@@ -188,6 +198,10 @@ Render as three cards. Keep the Dutch working names; provide an English label al
 **The collective.** Keep the three profiles (pull current text as a base, update framing). Lead line:
 - EN: *A collective of senior technologists - because only those who comprehend the whole stack can build trust.* Seniority here is a requirement, not a badge. Pull the existing per-person blurbs and external profile links from the current live site as a base (Koen Bonnet - Architecture & Product Delivery; Aniek Hannink - Architecture & Secure Software; Wiebe Woudstra - Cloud Strategy & AI), with these corrections: (a) Koen does software development in general, not only Node.js - replace "hands-on Node.js development" with "hands-on software development" (you may mention specific stacks only as examples, e.g. "incl. Node.js", never as the whole); (b) refresh all three blurbs so they fit the new positioning (sovereign digital trust), ideally reviewed by each member before publishing. Do not invent new credentials; leave a clearly-marked TODO where a member still needs to confirm wording.
 - NL: *Een collectief van senior technologen - want alleen wie de hele stack doorgrondt, kan vertrouwen bouwen.* Senioriteit is hier een vereiste, geen vinkje.
+
+Personality line (a humanising touch in this section, both languages - this is where the plumber tag lands best):
+- EN: *We're senior technologists. Among ourselves, we're the trust plumbers - the people who work in the layer under the floor that everything depends on.*
+- NL: *We zijn senior technologen. Onder elkaar noemen we onszelf loodgieters in vertrouwen - de mensen die werken in de laag onder de vloer waar alles van afhangt.*
 
 Delivery model (add as a short paragraph in this section, both languages):
 - EN: We are a **core team** that does the real work - design and build, the unbroken line. The technical realisation stays in the core; we do not outsource the understanding and control that trust requires. We extend, as needed, with adjacent specialist roles that sit outside the engineering core: (eIDAS) legal expertise, and a part-time compliance officer during the operating phase. We add around the core - we never give the core away. No handover, no bodyshopping.
@@ -241,6 +255,8 @@ Delivery model (add as a short paragraph in this section, both languages):
 - **QTSP confidentiality:** the client cannot be named - keep the case anonymised. Note that even the descriptors "a professional group" + "all Dutch citizens" + "qualified electronic-signature certificates" may be identifying to insiders. Before publishing, the client must confirm comfort with this wording. Generic fallback if needed: "a qualified trust service for issuing qualified electronic-signature certificates at national scale." Do not add the client's name, logo, or a verifiable certificate registry link unless the client explicitly clears it.
 - **Second case confidentiality:** for the client-identification case, omit the sector, do not name the external integrator, and keep the framing neutral and factual - describe what we did and the outcome, never disparage the prior delivery approach or vendor. Same no-name/no-logo rule applies until cleared.
 - **HR-migration illustration:** keep it to one subordinate line. Do not name the client or the destination vendor. Frame ONLY as verifiable integrity at scale (provable processing and arrival per individual document) - never as a sovereignty achievement, because the destination vendor has since changed ownership. That migration is, however, valid material for the *structural-sovereignty* point of view (told generically, "we have seen an acquisition undo sovereignty"), not as a client proof.
+- **Plumber tag - use sparingly.** "The trust plumbers" / "Loodgieters in vertrouwen" is a personality layer, not the primary promise. Use it on a few touchpoints only: hero kicker/chip, the short plumbing-metaphor band, light micro-kickers on the service cards, the collective section, and the footer sign-off. The serious headline always carries the gravitas; the audience is banks and government, so keep it charming, never jokey or cartoonish (no literal plumber imagery). Do not translate it literally beyond the fixed forms above ("vertrouwensloodgieter" is to be avoided); the NL tag "Loodgieters in vertrouwen" stays exactly as written - its double meaning ("in vertrouwen" = in confidence) is intentional and fits our discretion.
+- **Optional visual motif:** if a subtle graphic device is wanted, thin pipe/flow lines or an "under the floor" layer can echo the metaphor - restrained and abstract, never a literal plumber or wrench.
 - Don't paste the rawest internal lines verbatim where they'd read as blunt to a conservative buyer; use the copy provided above, which is already adapted.
 
 ---

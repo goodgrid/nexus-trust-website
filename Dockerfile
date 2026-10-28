@@ -1,6 +1,9 @@
 # syntax=docker/dockerfile:1
 
-FROM node:24-alpine AS builder
+# Pinned to the Node 24 LTS patch release that fixes the bundled-Brotli
+# out-of-bounds write (CVE-2026-111497 "Node2Shell", patched in 24.22.1 /
+# 26.12.1 / 22.23.4). Keep this at >= 24.22.1 when bumping.
+FROM node:24.22.1-alpine AS builder
 
 WORKDIR /app
 
@@ -16,7 +19,7 @@ ENV VITE_UMAMI_WEBSITE_ID=$VITE_UMAMI_WEBSITE_ID
 
 RUN npm run build
 
-FROM node:24-alpine AS runtime
+FROM node:24.22.1-alpine AS runtime
 
 WORKDIR /app
 ENV NODE_ENV=production
@@ -28,6 +31,10 @@ RUN npm ci --omit=dev && npm cache clean --force
 
 COPY server ./server
 COPY --from=builder /app/dist ./dist
+
+# Source permissions travel with COPY; the runtime runs as node, so an
+# unreadable asset would 500 instead of failing the build.
+RUN chmod -R a+rX ./dist
 
 # Brevo + recipient config are provided at runtime (docker run -e / compose),
 # never baked into the image. Sender must be a verified sender in Brevo:

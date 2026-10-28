@@ -41,6 +41,7 @@ export const content = {
     langSwitch: { label: 'Taal', toEn: 'Schakel naar Engels' },
     hero: {
       eyebrow: 'Een collectief van senior technologen',
+      personaTag: 'Loodgieters in vertrouwen',
       headline: 'Digitaal vertrouwen dat je écht kunt verantwoorden.',
       lead: 'We ontwerpen én bouwen vertrouwenskritische systemen die je volledig begrijpt en beheerst - van architectuur tot het fundament. Geen black boxes.',
       hook:
@@ -56,6 +57,10 @@ export const content = {
       structuralHeading: 'Soevereiniteit is structureel, geen vlag.',
       structuralBody:
         "Soevereiniteit op basis van leveranciersnationaliteit is broos. Kies vandaag een Europese leverancier en een overname die je niet in de hand hebt maakt 'm morgen buitenlands - je soevereiniteit verdampt via een eigendomswisseling op een laag die je nooit bezat. Echte soevereiniteit is structureel: controle over de datalaag, portabiliteit en open standaarden, zodat een eigendomswisseling je niet alsnog vastzet. Eigendom en jurisdictie horen bij wat je moet kunnen beheersen - niet alleen de techniek.",
+    },
+    plumbing: {
+      kicker: 'Loodgieters in vertrouwen',
+      body: 'Vertrouwen is als leidingwerk: onzichtbaar, onder de vloer, en alles draait erop - tot het lekt. Wij leggen het goed aan, en vinden de lekken voordat ze de boel onder water zetten.',
     },
     whyNow: {
       kicker: 'Waarom nu',
@@ -99,18 +104,21 @@ export const content = {
           badge: 'Het startpunt',
           title: 'Afhankelijkheidsdoorlichting',
           subtitle: 'Dependency X-Ray',
+          microKicker: 'Waar lekt je vertrouwen?',
           body: 'We doorgronden je stack laag voor laag - van applicatie tot hardware en beheer - en brengen in kaart waar het vertrouwen lekt: de black boxes, de afhankelijkheden, de lagen die je niet kunt certificeren. AI hoort daar nadrukkelijk bij: welke modellen en providers, waar zit de lock-in en het pay-per-query-risico, verlaat data Europa, waar zitten de AI Act-gaten? Puur inzicht, geen belofte. Je krijgt een geprioriteerde kaart van afhankelijkheden en een concrete route naar beheersing.',
         },
         {
           badge: 'De kern',
           title: 'Ontwerpen én bouwen van soevereine vertrouwensdiensten',
           subtitle: 'Design & build sovereign trust services',
+          microKicker: 'Nieuwe leidingen, goed gelegd.',
           body: 'Heb je een vertrouwenskritische capaciteit nodig die aantoonbaar klopt - een gekwalificeerde vertrouwensdienst, een identiteits-/eIDAS-oplossing, een certificeerbaar platform of soevereine infrastructuur - dan ontwerpen we op architectniveau én realiseren het zelf, in één onafgebroken lijn. Dezelfde discipline geldt voor AI-inzet: soevereine, controleerbare oplossingen waarin beheersing en verifieerbaarheid de eis zijn - eerlijk afgebakend tot waar onze capaciteit nu reikt. Je krijgt een werkende, certificeerbare dienst die je volledig kunt verantwoorden. Geen black box.',
         },
         {
           badge: 'Voor de grote initiatieven',
           title: 'Bouwen, bewijzen, overdragen',
           subtitle: 'Build, prove, transfer',
+          microKicker: 'Wij geven je de sleutels, geen black box.',
           body: 'We realiseren en operationaliseren een complex initiatief in een aparte hub tot het werkend en bewezen is, en dragen dan een draaiende afdeling of business unit over - kennis inbegrepen, ingepast in je organisatie. Een operationele eenheid die je zelf beheerst, zonder lock-in.',
         },
       ],
@@ -123,6 +131,9 @@ export const content = {
     collective: {
       heading: 'Het collectief',
       lead: 'Een collectief van senior technologen - want alleen wie de hele stack doorgrondt, kan vertrouwen bouwen. Senioriteit is hier een vereiste, geen vinkje.',
+      experience: '90+ jaar gecombineerde ervaring.',
+      persona:
+        'We zijn senior technologen. Onder elkaar noemen we onszelf loodgieters in vertrouwen - de mensen die werken in de laag onder de vloer waar alles van afhangt.',
       // TODO (per brief §8): blurbs voorleggen aan elk lid ter bevestiging vóór publicatie; geen credentials verzinnen.
       members: [
         {
@@ -138,6 +149,13 @@ export const content = {
           href: 'https://goodgrid.nl/magicchoice',
           blurb:
             'Past fundamentele technieken toe om vertrouwenskritische diensten écht te laten werken en standhouden - van architectuur via implementatie tot beheer.',
+        },
+        {
+          name: 'Wiebe Woudstra',
+          badge: 'Cloud Strategy & AI',
+          href: 'https://www.beaudesert.nl',
+          blurb:
+            'Cloud-infrastructuur, AI-advies, identity management en hands-on IT-operatie - met oog voor soevereiniteit en grip. Van interim-leiderschap tot end-to-end operationele oplevering.',
         },
       ],
       delivery:
@@ -178,6 +196,7 @@ export const content = {
     },
     footer: {
       tag: 'Soeverein digitaal vertrouwen',
+      signoff: 'Loodgieters in vertrouwen',
       emailLabel: 'E-mail',
     },
   },
@@ -199,6 +218,7 @@ export const content = {
     langSwitch: { label: 'Language', toNl: 'Switch to Dutch' },
     hero: {
       eyebrow: 'A collective of senior technologists',
+      personaTag: 'The trust plumbers',
       headline: 'Digital trust you can actually account for.',
       lead: 'We design and build trust-critical systems you fully understand and control - from architecture to the foundation. No black boxes.',
       hook:
@@ -214,6 +234,10 @@ export const content = {
       structuralHeading: 'Sovereignty is structural, not a flag.',
       structuralBody:
         'Sovereignty by vendor nationality is fragile. Pick a European supplier today and an acquisition you do not control can make it foreign tomorrow - and your sovereignty evaporates through an ownership change at a layer you never owned. Real sovereignty is structural: control of the data layer, portability and open standards, so a change of ownership cannot trap you. Ownership and jurisdiction are part of what you must be able to control - not just the technology.',
+    },
+    plumbing: {
+      kicker: 'The trust plumbers',
+      body: 'Trust is like plumbing: invisible, under the floor, and everything runs on it - until it leaks. We build it right, and we find the leaks before they flood.',
     },
     whyNow: {
       kicker: 'Why now',
@@ -257,18 +281,21 @@ export const content = {
           badge: 'The entry point',
           title: 'Dependency X-Ray',
           subtitle: 'Afhankelijkheidsdoorlichting',
+          microKicker: 'Where does your trust leak?',
           body: 'We map your stack layer by layer - from application to hardware and management - and show where trust leaks: the black boxes, the dependencies, the layers you cannot certify. AI is explicitly included: which models and providers, where is the lock-in and the pay-per-query risk, does data leave Europe, where are the AI Act gaps? Pure insight, no promises. You get a prioritised map of dependencies and a concrete route to control.',
         },
         {
           badge: 'The core',
           title: 'Design & build sovereign trust services',
           subtitle: 'Ontwerpen én bouwen van soevereine vertrouwensdiensten',
+          microKicker: 'New pipes, laid right.',
           body: 'When you need a trust-critical capability that demonstrably holds - a qualified trust service, an identity/eIDAS solution, a certifiable platform or sovereign infrastructure - we design it at architecture level and realise it ourselves, in one unbroken line. The same discipline applies to AI deployment: sovereign, controllable solutions where control and verifiability are the requirement - honestly scoped to where our capability currently reaches. You get a working, certifiable service you can fully account for. No black box.',
         },
         {
           badge: 'For the large initiatives',
           title: 'Build, prove, transfer',
           subtitle: 'Bouwen, bewijzen, overdragen',
+          microKicker: 'We hand you the keys, not a black box.',
           body: 'We realise and operationalise a complex initiative in a separate hub until it is working and proven, then hand over a running department or business unit - knowledge included, embedded in your organisation. An operational unit you control yourself, with no lock-in.',
         },
       ],
@@ -281,6 +308,9 @@ export const content = {
     collective: {
       heading: 'The collective',
       lead: 'A collective of senior technologists - because only those who comprehend the whole stack can build trust. Seniority here is a requirement, not a badge.',
+      experience: '90+ years of combined experience.',
+      persona:
+        'We’re senior technologists. Among ourselves, we’re the trust plumbers - the people who work in the layer under the floor that everything depends on.',
       // TODO (per brief §8): have each member confirm their blurb before publishing; do not invent credentials.
       members: [
         {
@@ -296,6 +326,13 @@ export const content = {
           href: 'https://goodgrid.nl/magicchoice',
           blurb:
             'Applies fundamental techniques to make trust-critical services actually work and hold up - from architecture through implementation to operations.',
+        },
+        {
+          name: 'Wiebe Woudstra',
+          badge: 'Cloud Strategy & AI',
+          href: 'https://www.beaudesert.nl',
+          blurb:
+            'Cloud infrastructure, AI consulting, identity management, and hands-on IT operations - with an eye for sovereignty and control. From interim leadership to end-to-end operational delivery.',
         },
       ],
       delivery:
@@ -336,6 +373,7 @@ export const content = {
     },
     footer: {
       tag: 'Sovereign digital trust',
+      signoff: 'The trust plumbers',
       emailLabel: 'Email',
     },
   },

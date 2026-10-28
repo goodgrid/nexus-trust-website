@@ -305,6 +305,114 @@
   margin-bottom: 14px;
 }
 
+/* Eyebrow + personality chip sit on one wrapping row. */
+.eyebrowRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.eyebrowRow .eyebrow {
+  margin-bottom: 0;
+}
+
+/* "The trust plumbers" / "Loodgieters in vertrouwen" - secondary, charming,
+   never competing with the headline. Italic carries the wink. */
+.personaTag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgb(var(--nt-neon-rgb) / 0.55);
+  background: rgb(var(--nt-neon-rgb) / 0.10);
+  color: #5a6600;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 0.82rem;
+}
+
+/* Tighter top spacing for the short plumbing-metaphor band so it reads as a
+   continuation of the conviction, not a full standalone section. */
+.sectionTight {
+  padding: 6px 0 30px;
+}
+
+.plumbBand {
+  position: relative;
+  overflow: hidden;
+  max-width: 82ch;
+  padding: 22px 26px;
+  border-radius: calc(var(--nt-radius) + 2px);
+  border: 1px solid var(--nt-border);
+  border-left: 3px solid rgb(var(--nt-neon-rgb) / 0.6);
+  background: linear-gradient(135deg, rgba(255 255 255 / 0.72), rgb(var(--nt-blush-light-rgb) / 0.38));
+}
+
+/* Restrained, abstract "pipes under the floor" motif: thin parallel lines
+   fading in from the right. No literal imagery. */
+.plumbBand::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 44%;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0 13px,
+    rgb(var(--nt-neon-rgb) / 0.22) 13px 15px
+  );
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 85%);
+  mask-image: linear-gradient(90deg, transparent, #000 85%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.plumbKicker {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  font-style: italic;
+  color: #5a6600;
+  margin-bottom: 8px;
+}
+
+.plumbBody {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 64ch;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: rgba(3 16 32 / 0.82);
+}
+
+/* Subtle plumbing micro-kicker on a service card; the formal name leads. */
+.serviceKicker {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #5a6600;
+  margin: -4px 0 10px;
+}
+
+.collectivePersona {
+  margin-top: 10px;
+  font-style: italic;
+  color: rgba(3 16 32 / 0.70);
+  max-width: 72ch;
+}
+
+.footerSignoff {
+  margin-top: 2px;
+  font-style: italic;
+  font-size: 0.86rem;
+  color: #5a6600;
+}
+
 .lead {
   margin-top: 14px;
   color: rgba(3 16 32 / 0.76);

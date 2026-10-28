@@ -292,7 +292,10 @@ function App() {
         <section className="hero">
           <div className="container heroGrid">
             <div className="heroCopy">
-              <div className="eyebrow">{t.hero.eyebrow}</div>
+              <div className="eyebrowRow">
+                <span className="eyebrow">{t.hero.eyebrow}</span>
+                <span className="personaTag">{t.hero.personaTag}</span>
+              </div>
               <h1>{t.hero.headline}</h1>
               <p className="lead">{t.hero.lead}</p>
               <p className="hookLine">{t.hero.hook}</p>
@@ -333,6 +336,15 @@ function App() {
             <div className="card structuralCard">
               <div className="cardTitle">{t.conviction.structuralHeading}</div>
               <p className="cardText">{t.conviction.structuralBody}</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="plumbing" className="section sectionTight" aria-label={t.plumbing.kicker}>
+          <div className="container">
+            <div className="plumbBand">
+              <span className="plumbKicker">{t.plumbing.kicker}</span>
+              <p className="plumbBody">{t.plumbing.body}</p>
             </div>
           </div>
         </section>
@@ -409,6 +421,7 @@ function App() {
                   </div>
                   <div className="cardTitle">{card.title}</div>
                   {locale === 'nl' && <div className="cardSubtitle">{card.subtitle}</div>}
+                  {card.microKicker && <div className="serviceKicker">{card.microKicker}</div>}
                   <p className="cardText">{card.body}</p>
                 </div>
               ))}
@@ -431,10 +444,13 @@ function App() {
           <div className="container">
             <div className="sectionHead">
               <h2>{t.collective.heading}</h2>
-              <p className="muted">{t.collective.lead}</p>
+              <p className="muted">
+                {t.collective.lead} <span className="nowrapInline">{t.collective.experience}</span>
+              </p>
+              <p className="collectivePersona">{t.collective.persona}</p>
             </div>
 
-            <div className="grid2">
+            <div className="grid3">
               {t.collective.members.map((member) => (
                 <div className="card profileCard" key={member.name}>
                   <img
@@ -531,6 +547,7 @@ function App() {
             <div>
               <div className="footerName">Nexus Trust</div>
               <div className="footerTag">{t.footer.tag}</div>
+              <div className="footerSignoff">{t.footer.signoff}</div>
             </div>
           </div>
 
