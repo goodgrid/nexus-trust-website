@@ -12,8 +12,12 @@ RUN npm ci
 
 COPY . .
 
-ARG VITE_UMAMI_HOST=https://cloud.umami.is
-ARG VITE_UMAMI_WEBSITE_ID
+# Public, client-side Umami analytics values, baked in at build time. These are
+# not secrets (they are served in the page HTML) and act as defaults so
+# `brainpod image build`, which cannot pass --build-arg, still produces a build
+# with analytics enabled. Override with --build-arg for a different instance.
+ARG VITE_UMAMI_HOST=https://e9cc44d3cb.route.brainpod.io
+ARG VITE_UMAMI_WEBSITE_ID=b4b5e428-7885-4106-92c6-02f073f8781d
 ENV VITE_UMAMI_HOST=$VITE_UMAMI_HOST
 ENV VITE_UMAMI_WEBSITE_ID=$VITE_UMAMI_WEBSITE_ID
 
